@@ -1,0 +1,46 @@
+1.These files will be opened in binary mode., read binary (rb) for PdfFileREader() and write binary (wb) PdfFileWriter()
+
+2.Calling getPage(4) will return a Page object for page 5 since page 0 is the first page
+
+3.import PyPDF2 as pdf
+pdfFileObj = open("cardealer.pdf",'rb')
+pdfReader = pdf.PdfFileReader(pdfFileObj)
+pdfReader.numPages
+
+4.Before we obtain the page object, the pdf has to be decrypted by calling .decrypt('swordfish')
+
+5.The rotateClockwise() and rotateCounterClockwise() methods. The degrees to rotate is passed as an integer argument
+     
+6.
+    Paragraph Object : A document contains multiple paragraphs. A paragraph begins on a new line and contains multiple
+
+runs. The Document object contains a list of Paragraph objects for the paragraphs in the document.
+
+7.import docx
+doc = docx.Document('abc.docx')
+doc.paragraphs
+
+8.A Run object has bold, underline,italic,strike and outline variables
+
+9.
+    Runs can be further styled using text attributes. Each attribute can be set to one of three values:
+
+True (the attribute is always enabled, no matter what other styles are applied to the run),
+False (the attribute is always disabled),
+None (defaults to whatever the run’s style is set to)
+
+    True always makes the Run object bolded and False makes it always not bolded, no matter what the style’s bold setting is. None will make the Run object just use the style’s bold setting
+
+10.By Calling the docx.Document() function.
+
+11.import docx
+doc = docx.Document()
+
+doc.add_paragraph('Hello there!')
+doc.save('hellothere.docx')
+
+12.
+
+    integer from 0 to 4
+    The arguments to add_heading() are a string of the heading text and an integer from 0 to 4. The integer 0 makes the heading the Title style, which is used for the top of the document. Integers 1 to 4 are for various heading levels, with 1 being the main heading and 4 the lowest subheading
+
