@@ -1,0 +1,13 @@
+PyInputPlus is not a part of the Python Standard Library, we must install it separately using Pip.
+
+2.We can import the module with import pyinputplus as pyip so that you can enter a shorter name when calling the module’s functions
+
+3.The difference is in the data-type when you use the first one the program expects an integer value as input but in the latter it expects a float value i.e number containing a decimal
+
+4.By using pyip.inputint(min=0, max=99)
+
+5. A list of regex strings that are either explicitly allowed or denied
+
+6.The function will raise RetryLimitException.
+
+7.The function returns the value 'hello'
