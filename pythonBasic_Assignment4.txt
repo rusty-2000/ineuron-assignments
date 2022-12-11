@@ -1,0 +1,31 @@
+1.The empty list value, which is a list value that contains no items. This is similar to how '' is the empty string value.
+
+2.spam[2] = 'hello' 
+
+3.'d' 
+
+4.'d'
+
+5.['a', 'b']
+
+6.1
+
+7.[3.14, 'cat', 11, 'cat', True, 99]
+
+8.[3.14, 11, 'cat', True]
+
+9.The operator for list concatenation is +, while the operator for replication is *. (This is the same as for strings.)
+
+10. While append() will add values only to the end of a list, insert() can add them anywhere in the list.
+
+11.The methods are remove(), pop() and clear()
+
+12.The similarity between Lists and Strings in Python is that both are sequences
+
+13.The primary difference between tuples and lists is that tuples are immutable as opposed to lists which are mutable. 
+
+14.(42,)
+
+16.Variables will contain references to list values rather than list values themselves. But for strings and integer values, variables simply contain the string or integer value.
+
+17.The copy() returns a shallow copy of the list, and deepcopy() returns a deep copy of the list.
