@@ -1,0 +1,13 @@
+1.Excel is a binary file format that holds information for all workbooks, and it is used in all worksheets.Excel is more superior when compared with the CSV file format, Excel can perform VBA Coding, functions, formulas and create summaries easily when compared to CSV.
+
+2.csv.reader(file, delimiter = '\t'),csv.writer(file)
+
+3.r+ - opens a file in both read and write mode. a+ - opens a file in both read and write mode. w+ - opens a file in both read and write mode.
+
+4.The writer. writerow() function 
+
+5.The delimiter is the character that appears between cells on a row. By default, the delimiter for a CSV file is a comma. The line terminator is the character that comes at the end of a row. By default, the line terminator is a newline
+
+6.If we have a JSON string, you can parse it by using the json.loads() method. The result will be a Python dictionary.
+
+7.json.dumps() method.
