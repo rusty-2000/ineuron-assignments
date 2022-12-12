@@ -1,0 +1,13 @@
+1.RGBA(Red-Green-Blue-Alpha)
+
+2.Pillow offers the ImageColor.getcolor() function so you don't have to memorize RGBA values for the colors you want to use. imgobj.getdata() will give you a sequence of (red, green, blue, alpha) tuples pretty quickly.
+
+3. The box. tuple submodule provides read-only access for the tuple userdata type. It allows, for a single tuple: selective retrieval of the field contents, retrieval of information about size, iteration over all the fields, and conversion to a Lua table.
+
+4.The image size can be obtained as a tuple with the attribute shape of ndarray in OpenCV and the attribute size of PIL.Image in Pillow (PIL). 
+
+5.crop(left, upper, right, lower).
+
+6. call save() and pass in the name we want used to save your image
+
+7.The 'ImageDraw' module provides simple 2D graphics support for Image Object.
