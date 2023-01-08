@@ -1,0 +1,31 @@
+1.from datetime import date
+now = date.today()
+now_str = now.isoformat()
+with open('today.txt', 'wt') as output:
+    print(now_str, file=output)
+	
+2.with open('today.txt', 'rt') as input:
+    today_string = input.read()
+    
+today_string
+
+3.from datetime import datetime
+fmt = '%Y-%m-%d\n'
+datetime.strptime(today_string, fmt)
+
+4.
+
+import os
+os.listdir('.')
+
+5.os.listdir('..')
+
+6.!python multi_process.py
+
+7.my_day = date(2000, 11, 29)
+my_day
+
+9.from datetime import timedelta
+ten_thousand = my_day + timedelta(days=10000)
+ten_thousand
+

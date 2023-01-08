@@ -1,0 +1,51 @@
+1.years_list = [1996,1997,1998,1999,2000,2001]
+
+2.1998
+
+3.2001
+
+4.['mozzarella', 'cinderella', 'salmonella']
+
+5.things_cap = things.copy()
+things_cap[1].capitalize()
+['mozzarella', 'cinderella', 'salmonella']
+
+6.['Groucho', 'Chico', 'Harpo']
+
+7.surprise[-1] = surprise[-1].lower()
+surprise[-1] = surprise[-1][::-1]
+surprise[-1].capitalize()
+'Oprah'
+
+8.{'dog': 'chien', 'cat': 'chat', 'walrus': 'morse'}
+
+9.'morse'
+
+10.f2e = {}
+for english, french in e2f.items():
+ f2e[french] = english
+{'chien': 'dog', 'chat': 'cat', 'morse': 'walrus'}
+
+11.'dog'
+
+12.set(e2f.keys())
+{'cat', 'dog', 'walrus'}
+
+13.{'animals': {'cats': ['Henri', 'Grumpy', 'Lucy'], 'octopi': {}, 'emus': {}},'plants': {},'other': {}}
+
+14.print(life.keys())
+dict_keys(['animals', 'plants', 'other'])
+
+15.print(life['animals'].keys())
+dict_keys(['cats', 'octopi', 'emus'])
+
+16.print(life['animals']['cats'])
+['Henri', 'Grumpy', 'Lucy']
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+1.X = 'iNeuron'
+def func():
+    print (X)
+func()
+iNeuron
+
+2.X = 'iNeuron'
+def func():
+    X = 'NI!'
+func()
+
+3.X = 'iNeuron'
+def func():
+    X = 'NI!'
+    print (X)
+func()
+
+4.The line, func() Call the function we defined, with "NI" as the value of X inside the funtion, but doesn't prints it, as there is no print statement inside the function, and we have used global keyword, which means, global keyword allows us to modify the variable, that is "X", outside of the current function.
+  The line, print(X), prints the value of X, which is now "NI", as we used global keyword inside the function.
+
+X = 'iNeuron'
+def func():
+    global X
+    X = "NI"
+func()
+
+5. X = 'iNeuron'
+def func():
+    X = "NI"
+def nested():
+    print(X)
+nested()
+
+6. def func():
+    X = 'NI'
+    def nested():
+        nonlocal X
+        X = 'Spam'
+    nested()
+
+
+
+

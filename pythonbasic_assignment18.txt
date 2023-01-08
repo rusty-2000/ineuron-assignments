@@ -1,0 +1,43 @@
+1. import zoo
+zoo.hours()
+Open 9-5 daily
+
+2.import zoo as menagerie
+menagerie.hours()
+
+Open 9-5 daily
+
+3.from zoo import hours
+hours()
+Open 9-5 daily
+
+4.from zoo import hours as info
+info()
+Open 9-5 daily
+
+5.plain_dict = {'a': 1, 'b': 2, 'c': 3}
+plain_dict
+{'a': 1, 'b': 2, 'c': 3}
+
+6.from collections import OrderedDict
+fancy = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+fancy
+
+OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+
+7.from collections import defaultdict
+dict_of_lists = defaultdict(list)
+dict_of_lists['a'].append('something for a')
+dict_of_lists['a']
+
+['something for a']
+
+
+
+
+
+
+
+
+
+
