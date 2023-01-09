@@ -1,0 +1,155 @@
+1. def num_check(num):
+    if num > 0:
+        print("Positive number")
+    elif num == 0:
+       print("Zero")
+    else:
+       print("Negative number")
+number = float(input("Enter a number: "))
+num_check(number)
+
+Enter a number: 5
+Positive number
+
+def num_check(num):
+    if num > 0:
+        print("Positive number")
+    elif num == 0:
+       print("Zero")
+    else:
+       print("Negative number")
+number = float(input("Enter a number: "))
+num_check(number)
+
+Enter a number: -8
+Negative number
+
+def num_check(num):
+    if num > 0:
+        print("Positive number")
+    elif num == 0:
+       print("Zero")
+    else:
+       print("Negative number")
+number = float(input("Enter a number: "))
+num_check(number)
+
+2.def even_odd(num):
+    if (num % 2) == 0:
+       print("{0} is Even".format(num))
+    else:
+       print("{0} is Odd".format(num))
+number = int(input("Enter a number: "))
+even_odd(number)
+
+Enter a number: 5
+5 is Odd
+
+def even_odd(num):
+    if (num % 2) == 0:
+       print("{0} is Even".format(num))
+    else:
+       print("{0} is Odd".format(num))
+number = int(input("Enter a number: "))
+even_odd(number)
+
+3.def leap_year(year):
+    if (year % 4) == 0:
+        if (year % 100) == 0:
+            if (year % 400) == 0:
+               print("{0} is a leap year".format(year))
+            else:
+               print("{0} is not a leap year".format(year))
+        else:
+           print("{0} is a leap year".format(year))
+    else:
+       print("{0} is not a leap year".format(year))
+year = int(input("Enter a year: "))
+leap_year(year)
+
+Enter a year: 1265
+1265 is not a leap year
+
+def leap_year(year):
+    if (year % 4) == 0:
+        if (year % 100) == 0:
+            if (year % 400) == 0:
+               print("{0} is a leap year".format(year))
+            else:
+               print("{0} is not a leap year".format(year))
+        else:
+           print("{0} is a leap year".format(year))
+    else:
+       print("{0} is not a leap year".format(year))
+year = int(input("Enter a year: "))
+leap_year(year)
+
+Enter a year: 2000
+2000 is a leap year
+
+def leap_year(year):
+    if (year % 4) == 0:
+        if (year % 100) == 0:
+            if (year % 400) == 0:
+               print("{0} is a leap year".format(year))
+            else:
+               print("{0} is not a leap year".format(year))
+        else:
+           print("{0} is a leap year".format(year))
+    else:
+       print("{0} is not a leap year".format(year))
+year = int(input("Enter a year: "))
+leap_year(year)
+
+Enter a year: 2021
+2021 is not a leap year
+
+4.def prime_check(num):
+    if num > 1:
+        for i in range(2,num):
+           if (num % i) == 0:
+               print(num,"is not a prime number")
+               print(i,"times",num//i,"is",num)
+               break
+        else:
+           print(num,"is a prime number")
+    else:
+       print(num,"is not a prime number")
+number = int(input("Enter a number: "))
+prime_check(number)
+
+Enter a number: 21
+21 is not a prime number
+3 times 7 is 21
+
+def prime_check(num):
+    if num > 1:
+        for i in range(2,num):
+           if (num % i) == 0:
+               print(num,"is not a prime number")
+               print(i,"times",num//i,"is",num)
+               break
+        else:
+           print(num,"is a prime number")
+    else:
+       print(num,"is not a prime number")
+number = int(input("Enter a number: "))
+prime_check(number)
+
+Enter a number: 5
+5 is a prime number
+
+
+5.def prime_check_interval(lower,upper):
+    print("Prime numbers between", lower, "and", upper, "are:")
+    for num in range(lower, upper + 1):
+       if num > 1:
+           for i in range(2, num):
+               if (num % i) == 0:
+                   break
+           else:
+            print(num)
+lower_number = int(input("Enter a lower range number: "))
+upper_number = int(input("Enter an upper range number: "))
+prime_check_interval(lower_number, upper_number)
+

@@ -1,0 +1,92 @@
+1. lst = []
+n = int(input("Enter number of elements : "))
+for i in range(0, n):
+    ele = int(input())
+    lst.append(ele)
+    total = sum(lst)
+print("Elements is list are : ",lst)
+print("Sum of elements in list : ",total)
+
+2.import numpy
+lst1 = []
+n1 = int(input("Enter number of elements : "))
+for i in range(0, n1):
+    ele1 = int(input())
+    lst1.append(ele1)
+print("Elements is list are : ",lst1)
+result1 = numpy.prod(lst1)
+print("Multiplication of elements in list :",result1)
+
+3. lst2 = []
+n2 = int(input("Enter number of elements : "))
+for i in range(0, n2):
+    ele2 = int(input())
+    lst2.append(ele2)
+print("Elements is list are : ",lst2)
+print("Smallest element in list is:", min(lst2))
+
+4. lst3 = []
+n3 = int(input("Enter number of elements : "))
+for i in range(0, n3):
+    ele3 = int(input())
+    lst3.append(ele3)
+print("Elements is list are : ",lst3)
+print("Largest element in list is:", max(lst2))
+
+5. lst4 = []
+n4 = int(input("Enter number of elements : "))
+for i in range(0, n4):
+    ele4 = int(input())
+    lst4.append(ele4)
+    lst4.sort()
+print("Elements is list are : ",lst4)
+print("Second largest element is:", lst4[-2])
+
+6.lst5 = []
+n5 = int(input("Enter number of elements : "))
+for i in range(0, n5):
+    ele5 = int(input())
+    lst5.append(ele5)
+    lst5.sort()
+print("Elements is list are : ",lst5)
+m = int(input("Number of elements : "))
+print("N largest elements are:", lst5[-m:])
+
+7. lst6 = []
+n6 = int(input("Enter number of elements : "))
+for i in range(0, n6):
+    ele6 = int(input())
+    lst6.append(ele6)
+print("Elements is list are : ",lst6)
+print("Even Numbers in the list are : ")
+for num in lst6:
+    if num % 2 == 0:
+       print(num, end = " ")
+	   
+8. lst7 = []
+n7 = int(input("Enter number of elements : "))
+for i in range(0, n7):
+    ele7 = int(input())
+    lst7.append(ele7)
+print("Elements is list are : ",lst7)
+print("Odd Numbers in the list are : ")
+for num in lst7:
+    if num % 2 != 0:
+       print(num, end = " ")
+	   
+9. test_list = [5, 6, [], 3, [], [], 9]
+print("The original list is : " + str(test_list))
+res = list(filter(None, test_list))
+print ("List after empty list removal : " + str(res))
+
+10 . def Cloning(li1):
+    li_copy = li1[:]
+    return li_copy
+li1 = []
+n8 = int(input("Enter number of elements : "))
+for i in range(0, n8):
+    ele8 = int(input())
+    li1.append(ele8)
+li2 = Cloning(li1)
+print("Original List:", li1)
+print("After Cloning:", li2)

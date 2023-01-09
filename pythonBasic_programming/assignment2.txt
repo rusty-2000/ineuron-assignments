@@ -1,0 +1,35 @@
+1. def km_to_miles(a):
+    conv_fac = 0.621371
+    miles = a * conv_fac
+    print('%0.2f kilometers is equal to %0.2f miles' %(a,miles))
+distance = float(input("Enter the distance:"))
+km_to_miles(distance)
+
+2.def celsius_to_farenheit(celsius):
+    farenheit = (celsius*1.8)+32
+    print("Temperature in farenheit is:",farenheit)
+temprature = float(input("Enter the temperature in celcius: "))
+celsius_to_farenheit(temprature)
+
+3.import calendar
+yy = int(input("Enter year: "))
+mm = int(input("Enter month: "))
+print(calendar.month(yy, mm))
+
+4.
+a = 1
+b = 5
+c = 4
+
+d = (b**2) - (4*a*c)
+sol1 = (-b-cmath.sqrt(d))/(2*a)
+sol2 = (-b+cmath.sqrt(d))/(2*a)
+print('The solution are {0} and {1}'.format(sol1,sol2))
+
+5.
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+print("Before swapping values of a and b are : {0} and {1}".format(a,b))
+a,b = b,a
+print("After swapping values of a and b are : {0} and {1}".format(a,b))
+

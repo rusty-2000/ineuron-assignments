@@ -1,0 +1,120 @@
+1. def calculateLength(n):    
+    length = 0
+    while(n != 0):    
+        length = length + 1  
+        n = n//10    
+    return length    
+     
+num =  int(input("Enter a number: "))  
+rem = sum = 0
+len = calculateLength(num)    
+n = num    
+     
+while(num > 0):    
+    rem = num%10    
+    sum = sum + int(rem**len)    
+    num = num//10    
+    len = len - 1    
+     
+   
+if(sum == n):    
+    print(str(n) + " is a disarium number")    
+else:    
+    print(str(n) + " is not a disarium number") 
+	
+	
+2. def calculateLength(n):    
+    length = 0    
+    while(n != 0):    
+        length = length + 1;    
+        n = n//10    
+    return length    
+
+def sumOfDigits(num):    
+    rem = sum = 0    
+    len = calculateLength(num)    
+        
+    while(num > 0):   
+        rem = num%10    
+        sum = sum + (rem**len)    
+        num = num//10    
+        len = len - 1    
+    return sum    
+      
+result = 0    
+lower_range = int(input("Enter lower range: "))
+upper_range = int(input("Enter upper range: "))
+print("Disarium numbers between {0} and {1} are : ".format(lower_range,upper_range))    
+for i in range(lower_range,upper_range):    
+    result = sumOfDigits(i)            
+    if(result == i):   
+        print(i)   
+		
+3. def happy_number(num):    
+    rem = sum = 0     
+    while(num > 0):    
+        rem = num%10;    
+        sum = sum + (rem*rem);    
+        num = num//10    
+    return sum    
+        
+num = int(input("Enter a number: "))    
+result = num    
+     
+while(result != 1 and result != 4):    
+    result = happy_number(result)    
+ 
+if(result == 1):    
+    print(str(num) + " is a happy number")    
+elif(result == 4):    
+    print(str(num) + " is not a happy number")   
+	
+	
+4.def happy_number_interval(num):    
+    rem = sum = 0    
+    while(num > 0):    
+        rem = num%10    
+        sum = sum + (rem*rem)    
+        num = num//10    
+    return sum   
+            
+lower_range = int(input("Enter lower range: "))
+upper_range = int(input("Enter upper range: "))
+print("List of happy numbers between {0} and {1} are : ".format(lower_range,upper_range))
+for i in range(lower_range,upper_range+1):    
+    result = i    
+        
+    while(result != 1 and result != 4):    
+        result = happy_number_interval(result)    
+    if(result == 1):    
+        print(i) 
+		
+5.num = int(input("Enter a number: "))    
+rem = sum = 0       
+n = num;       
+while(num > 0):    
+    rem = num%10   
+    sum = sum + rem   
+    num = num//10   
+ 
+if(n%sum == 0):    
+    print(str(n) + " is a harshad number")    
+else:    
+    print(str(n) + " is not a harshad number")   
+	
+6. def pronic_number(num):    
+    flag = False    
+        
+    for j in range(1, num+1):    
+        #Checks for pronic number by multiplying consecutive numbers    
+        if((j*(j+1)) == num):    
+            flag = True    
+            break    
+    return flag    
+     
+lower_range = int(input("Enter lower range: "))
+upper_range = int(input("Enter upper range: "))
+print("Pronic numbers between {0} and {1}: ".format(lower_range,upper_range))    
+for i in range(lower_range,upper_range+1):  
+    if(pronic_number(i)):    
+        print(i)
