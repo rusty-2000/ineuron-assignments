@@ -1,0 +1,68 @@
+1. def gen(n):
+  
+  for i in range(0,n):
+    if i%7==0:
+      print(i)
+n = int(input('enter n : '))
+gen(n)     
+     
+
+2.Sentence = input('Enter the sentence ').split()
+word = sorted(set(Sentence))     # sort alphbetically
+
+for i in word:
+    print("{0}:{1}".format(i,Sentence.count(i)))
+	
+	
+3.class Person(object):
+    def getGender( self ):
+        return "None"
+
+class Male( Person ):
+    def getGender( self ):
+        return "Male"
+
+class Female( Person ):
+    def getGender( self ):
+        return "Female"
+
+ob_male = Male()
+ob_female= Female()
+print(ob_male.getGender())
+print(ob_female.getGender())
+
+
+4. subject=["I", "You"]
+verb=["Play", "Love"]
+obj=["Hockey","Football"]
+
+str_list = [(sub+" "+ vb + " " + ob) for sub in subject for vb in verb for ob in obj]
+for sentence in str_list:
+    print(sentence)
+     
+	 
+5.import zlib
+str = 'hello world!hello world!hello world!hello world!'
+
+a = bytes(str, 'utf-8')
+b = zlib.compress(a)
+print(b)
+print(zlib.decompress(b))
+
+
+6.from bisect import bisect_left
+  
+def BinarySearch(a, x):
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return i
+    else:
+        return -1 
+
+a = [1, 2, 4, 4, 8]
+x = int(4)
+res = BinarySearch(a, x)
+if res == -1:
+    print(x, "is absent")
+else:
+    print("First occurrence of", x, "is present at", res)

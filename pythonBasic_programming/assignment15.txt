@@ -1,0 +1,66 @@
+1. def getno(n): 
+    i = 0 
+    while i < n:
+        j = i
+        i += 1 
+        if j % 7 == 0 and j % 5 == 0:
+            yield j
+n = int(input('enter n : '))
+num =[]
+for i in getno(n): 
+    num.append(str(i))
+    
+print(','.join(num))
+
+
+2.def getno(n): 
+    i = 0 
+    while i < n:
+        j = i
+        i += 1 
+        if j % 2 == 0:
+            yield j
+n = int(input('enter n : '))
+num =[]
+for i in getno(n): 
+    num.append(str(i))
+    
+print(','.join(num))
+
+
+3.def fib(n):    
+    if n == 0: 
+            return 0    
+    elif n == 1: 
+            return 1    
+    else: 
+            return fib(n-1)+fib(n-2)
+n=int(input('Enter a number :')) 
+values = [str(fib(x)) for x in range(0, n+1)] 
+print(",".join(values))
+
+
+4.email = input("Enter the email address : ").split('@')
+company = str(email[1]).split('.')
+print("User name : ",email[0])
+print("Company name : ",company[0])
+
+
+5.class Shape(object):
+  def __init__(self):
+    pass
+
+  def area(self):
+     return 0
+
+class Square(Shape):
+  def __init__(self,l):
+
+    
+    self.length = l
+
+  def area(self):
+    return self.length*self.length
+obsquare = Square(9)
+
+obsquare.area()

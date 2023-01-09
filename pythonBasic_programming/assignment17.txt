@@ -1,0 +1,54 @@
+1. def abc(a, b, c):     
+    sum = 0
+    for i in range(a, b + 1): 
+        if (i % c == 0):
+            sum += i 
+    return sum
+a = int(input('Enter a : '))
+b = int(input('Enter b : '))
+c = int(input('Enter c : '))
+print(abc(a, b, c))
+
+
+2.def correct_signs ( txt ) : 
+    return eval ( txt )
+print(correct_signs("3 > 7 < 11"))
+print(correct_signs("13 > 44 > 33 > 1"))
+print(correct_signs("1 < 2 < 6 < 9 > 3"))
+
+3.def replace_vowels(str, s):
+    vowels = 'AEIOUaeiou'
+    for ele in vowels:  
+        str = str.replace(ele, s)  
+    return str
+  
+input_str = input("enter a string : ")
+s = input("enter a vowel replacing string : ")
+print("\nGiven Sting:", input_str)
+print("Given Specified Character:", s)
+print("Afer replacing vowels with the specified character:",replace_vowels(input_str, s))
+     
+	 
+4.def factorial(n):     
+    if n == 0:
+        return 1    
+    return n * factorial(n-1)
+
+num = int(input('enter a number :'))
+print("Factorial of", num, "is", factorial(num))
+
+5.def hamming_distance(str1, str2):
+    i = 0
+    count = 0
+ 
+    while(i < len(str1)):
+        if(str1[i] != str2[i]):
+            count += 1
+        i += 1
+    return count
+ 
+
+str1 = "abcde"
+str2 = "bcdef"
+ 
+print(hamming_distance(str1, str2))
