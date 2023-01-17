@@ -1,0 +1,60 @@
+1. def list_operation(start,end,divisor):
+    out_list = []
+    for ele in range(start,end+1):
+        if ele%divisor == 0:
+            out_list.append(ele)
+    print(f'Output: ➞ {out_list}')
+
+list_operation(1, 10, 3)
+list_operation(7, 9, 2)
+list_operation(15, 20, 7)
+
+
+2.def simon_says(in_list_1,in_list_2):
+    if len(in_list_1) == len(in_list_1) and len(in_list_1) >=2 and len(in_list_1) >=2:
+        if(in_list_1[:-1] == in_list_2[1:]):
+            print(f'{in_list_1,in_list_2} ➞ {True}')
+        else:
+            print(f'{in_list_1,in_list_2} ➞ {False}')
+            
+simon_says([1, 2], [5, 1])
+simon_says([1, 2], [5, 5])
+simon_says([1, 2, 3, 4, 5], [0, 1, 2, 3, 4])
+simon_says([1, 2, 3, 4, 5], [5, 5, 1, 2, 3])
+
+
+3.def society_name(in_list):
+    out_string = []
+    for ele in in_list:
+        out_string.append(ele[0])
+    output = ''.join(sorted(out_string))
+    print(f'{in_list} ➞ {output}')
+
+society_name(["Adam", "Sarah", "Malcolm"])
+society_name(["Harry", "Newt", "Luna", "Cho"])
+society_name(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"])
+
+
+4.def is_isogram(in_string):
+    lower_in_string = in_string.lower()
+    if len(lower_in_string) == len(set(lower_in_string)):
+        print(f'{in_string} ➞ {True}')
+    else:
+        print(f'{in_string} ➞ {False}')
+    
+is_isogram("Algorism")
+is_isogram("PasSword")
+is_isogram("Consecutive")
+
+
+5.def is_in_order(in_string):
+    in_string_sorted = ''.join(sorted(in_string))
+    if in_string == in_string_sorted:
+        print(f'{in_string} ➞ {True}')
+    else:
+       print(f'{in_string} ➞ {False}')
+
+is_in_order("abc")
+is_in_order("edabit")
+is_in_order("123")
+is_in_order("xyzz")
