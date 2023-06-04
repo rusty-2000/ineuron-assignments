@@ -1,0 +1,115 @@
+# Python function to print common elements in three sorted arrays
+def findCommon(ar1, ar2, ar3, n1, n2, n3):
+
+	# Initialize starting indexes for ar1[], ar2[] and ar3[]
+	i, j, k = 0, 0, 0
+
+	# Iterate through three arrays while all arrays have elements
+	while (i < n1 and j < n2 and k < n3):
+
+		# If x = y and y = z, print any of them and move ahead
+		# in all arrays
+		if (ar1[i] == ar2[j] and ar2[j] == ar3[k]):
+			print ar1[i],
+			i += 1
+			j += 1
+			k += 1
+
+		# x < y
+		elif ar1[i] < ar2[j]:
+			i += 1
+
+		# y < z
+		elif ar2[j] < ar3[k]:
+			j += 1
+
+		# We reach here when x > y and z < y, i.e., z is smallest
+		else:
+			k += 1
+
+
+# Driver program to check above function
+ar1 = [1, 5, 10, 20, 40, 80]
+ar2 = [6, 7, 20, 80, 100]
+ar3 = [3, 4, 15, 20, 30, 70, 80, 120]
+n1 = len(ar1)
+n2 = len(ar2)
+n3 = len(ar3)
+print "Common elements are",
+findCommon(ar1, ar2, ar3, n1, n2, n3)
+
+2.  res=[]
+        temp=[]
+        for n in nums1:
+            if n not in nums2 and n not in temp :
+                temp.append(n)
+        res.append(temp)
+        temp=[]
+        for m in nums2:
+            if m not in nums1 and m not in temp:
+                temp.append(m)
+        res.append(temp)
+        return res
+        
+3.  m= len(matrix)
+        n = len(matrix[0])
+        Transpose=[[0]*m for i in range(n)]
+        for i in range(m):
+            for j in range(n):
+                Transpose[j][i]=matrix[i][j]
+        return Transpose
+        
+4. def arrayPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        res=0
+        for i in range(0,len(nums),2):
+            res+=nums[i]
+        return res
+        
+        
+5. count=1
+        res=0
+        while n>0:
+            
+           
+            n=n-count
+            count+=1
+            if n>=0:
+                res+=1
+        return res
+        
+        
+        
+ 6.  def sortedSquares(self, nums: List[int]) -> List[int]:
+        res=[0]*len(nums)
+        l,r=0,len(nums)-1
+        index=len(nums)-1
+        while l<=r:
+            if abs(nums[l])<abs(nums[r]):
+                res[index]=nums[r]*nums[r]
+                r-=1
+            else:
+                res[index]=nums[l]*nums[l]
+                l+=1
+            index-=1
+        return res
+        
+        
+7. def maxCount(self, m: int, n: int, ops: List[List[int]]) -> int:
+        
+        minr,minc=m,n
+        for r,c in ops:
+            minr,minc=min(r,minr),min(c,minc)
+        return minr*minc
+
+
+
+8. def shuffle(self, nums: List[int], n: int) -> List[int]:
+        res=[]
+        for i in range(n):
+            res.append(nums[i])
+            res.append(nums[i+n])
+        return res
+
+
+
