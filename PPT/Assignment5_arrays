@@ -1,0 +1,104 @@
+1.   def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
+        
+        result=[]
+        if m*n==len(original):
+            for i in range(0,m*n,n):
+                result.append(original[i:i+n])
+        return result
+        
+        
+ 2. def arrangeCoins(self, n: int) -> int:
+        count=1
+        res=0
+        while n>0:
+            
+           
+            n=n-count
+            count+=1
+            if n>=0:
+                res+=1
+        return res
+        
+ 3. res=[0]*len(nums)
+        l,r=0,len(nums)-1
+        index=len(nums)-1
+        while l<=r:
+            if abs(nums[l])<abs(nums[r]):
+                res[index]=nums[r]*nums[r]
+                r-=1
+            else:
+                res[index]=nums[l]*nums[l]
+                l+=1
+            index-=1
+        return res
+        
+        
+        
+ 4.  def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        res=[]
+        temp=[]
+        for n in nums1:
+            if n not in nums2 and n not in temp :
+                temp.append(n)
+        res.append(temp)
+        temp=[]
+        for m in nums2:
+            if m not in nums1 and m not in temp:
+                temp.append(m)
+        res.append(temp)
+        return res
+        
+        
+ 5. def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        count=0
+        arr2.sort()
+        for n in arr1:
+            l=0
+            r=len(arr2)-1
+            while l<=r:
+                mid=(l+r)//2
+                if abs(n-arr2[mid])<=d:
+                    count+=1
+                    break
+                elif arr2[mid]<n:
+                    l=mid+1
+                else:
+                    r=mid-1
+        return len(arr1)-count
+        
+        
+        
+  6.  hashmap={}
+        output=[]
+        for i in nums:
+            if i not in hashmap:
+                hashmap[i]=1
+            else:
+                hashmap[i]+=1
+                if i not in output:
+                    output.append(i)
+        return output
+        
+        
+        
+  7. def findMin(self, nums: List[int]) -> int:
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = left + (right - left) // 2
+            if nums[mid] > nums[right]:
+                left = mid + 1
+            else:
+                right = mid
+        return nums[left]
+        
+        
+   8. def findOriginalArray(self, changed: List[int]) -> List[int]:
+        changed.sort()
+        stk,res=deque([]),[]
+        for i in changed:
+            if stk and stk[0]*2==i:
+                b=stk.popleft()
+                res.append(b)
+            else:
+                stk.append(i)
+        return res if not stk else []
