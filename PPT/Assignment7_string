@@ -1,0 +1,86 @@
+1.  mapst,mapts={},{}
+        for a,b in zip(s,t):
+          
+            if((a in mapst and mapst[a]!=b) or (b in mapts and mapts[b]!=a)):
+                return False
+            mapst[a]=b
+            mapts[b]=a
+        return True
+        
+        
+   2.     def isStrobogrammatic(self, num):
+      
+        maps = {("0", "0"), ("1", "1"), ("6", "9"), ("8", "8"), ("9", "6")}
+        i,j = 0, len(num) - 1
+        while i <= j:
+            if (num[i], num[j]) not in maps:
+                return False
+            i += 1
+            j -= 1
+        return True
+        
+        
+        
+ 3.  sys.set_int_max_str_digits(10000)
+        n=int(num1)
+        n1=int(num2)
+        n2=n+n1
+        return str(n2)
+        
+        
+4.  def reverseWords(self, s: str) -> str:
+        l=[]
+        s=s.split(" ")
+        print(s)
+        for word in s:
+            l.append(word[::-1])
+        
+        return " ".join(l)
+        
+5. f k>=len(s):
+            return s[::-1]
+        s=list(s)
+        for i in range(0,len(s),k*2):
+            s[i:i+k]=(s[i:i+k])[::-1]
+        return "".join(s)
+        
+        
+ 6. def rotateString(self, s: str, goal: str) -> bool:
+        s=list(s)
+        goal=list(goal)
+        for i in range(len(s)):
+            s.append(s[0])
+            s.pop(0)
+           
+            if s==goal:
+                return True
+        return False
+
+
+7.  x=[]
+        y=[]
+        for i in range(len(s)):
+            if x and s[i]=="#":
+                x.pop()
+            else:
+                if s[i]!="#":
+                    x.append(s[i])
+        for i in range(len(t)):
+            if y and t[i]=="#":
+                y.pop()
+            else:
+                if t[i]!="#":
+                    y.append(t[i])
+        if x==y:
+            return True
+        return False
+        
+        
+
+8.  ef checkStraightLine(self, coordinates: List[List[int]]) -> bool:
+        (x0,y0),(x1,y1) = coordinates[0],coordinates[1]
+
+        for x, y in coordinates:
+            if (y1-y0)*(x-x0)-(y-y0)*(x1-x0): return False     
+
+        return True
