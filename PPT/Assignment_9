@@ -1,0 +1,121 @@
+1.  def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and n & (n-1) == 0
+
+2.  def missingNumber(self, nums: List[int]) -> int:
+        #O(N)TS
+        mySet = set()
+        for num in nums: mySet.add(num)
+        for i in range(len(nums) + 1): 
+            if i not in mySet: return i
+        return -1
+        
+        
+3. def factorial(n):
+       
+    if n == 0:
+        return 1
+      
+    return n * factorial(n-1)
+   
+# Driver Code
+num = 5;
+print("Factorial of", num, "is",
+factorial(num))
+
+
+4. def power(N, P):
+ 
+    # If power is 0 then return 1
+    # if condition is true
+    # only then it will enter it,
+    # otherwise not
+    if P == 0:
+        return 1
+ 
+    # Recurrence relation
+    return (N*power(N, P-1))
+ 
+ 
+# Driver code
+if __name__ == '__main__':
+    N = 5
+    P = 2
+ 
+    print(power(N, P))
+    
+    
+    
+ 5. def findMaxRec(A, n):
+ 
+    # if n = 0 means whole array
+    # has been traversed
+    if (n == 1):
+        return A[0]
+    return max(A[n - 1], findMaxRec(A, n - 1))
+ 
+# Driver Code
+if __name__ == "__main__":
+     
+    A = [1, 4, 45, 6, -50, 10, 2]
+    n = len(A)
+    print(findMaxRec(A, n))
+    
+    
+    
+6. # Python 3 Program to
+# find nth term of
+# Arithmetic progression
+ 
+def Nth_of_AP(a, d, N) :
+ 
+    # using formula to find the
+    # Nth term t(n) = a(1) + (n-1)*d
+    return (a + (N - 1) * d)
+      
+  
+# Driver code
+a = 2  # starting number
+d = 1  # Common difference
+N = 5  # N th term to be find
+  
+# Display the output
+print( "The ", N ,"th term of the series is : ",
+       Nth_of_AP(a, d, N))
+       
+       
+       
+  7. from itertools import permutations
+ 
+#Taking input
+string = "ABC"
+ 
+# Converitng into iterable object to pass in the function
+string = list(string)
+permu = permutations(string, 3)
+ 
+# Printing all the permutations
+# Using join function to join the string
+ 
+for i in list(permu):
+  print("".join(i))
+  
+  
+8. arr=[1,2,3,4,5]
+product=1
+  
+#initialize start and last pointers
+i=0
+j=len(arr)-1
+  
+#add first and last simultaneously 
+while(i<j):
+    product*=arr[i]*arr[j]
+    i+=1
+    j-=1
+      
+#multiply only one element
+if(i==j):
+    product*=arr[i]
+  
+#printing product
+print(product)
