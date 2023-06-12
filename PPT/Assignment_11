@@ -1,0 +1,116 @@
+1. def mySqrt(self, x: int) -> int:
+        left,right=1,x
+        while left<=right:
+            mid=(left+right)//2
+            if mid*mid==x:
+                return mid
+            if mid*mid>x:
+                right=mid-1
+            else:
+                left=mid+1
+        return right
+        
+      
+2.  def findPeakElement(self, nums: List[int]) -> int:
+        n = len(nums)
+        l = 0;
+        h = n-1;
+
+        while( l < h ):
+            mid = (l+h)//2;
+            print(f'l:{l} h:{h} mid:{mid}')
+            if( nums[mid] < nums[mid+1] ):
+                l = mid+1
+            else:
+                h = mid ;
+
+        return l;
+        
+        
+        
+    3.  def missingNumber(self, nums: List[int]) -> int:
+        #O(N)TS
+        mySet = set()
+        for num in nums: mySet.add(num)
+        for i in range(len(nums) + 1): 
+            if i not in mySet: return i
+        return -1
+
+
+
+4. def findDuplicate(self, nums: List[int]) -> int:
+        for k in nums:
+            a = abs(k)
+            if nums[a-1] < 0: return a
+            else:
+                nums[a-1]*=-1
+                
+                
+                
+  5. def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        return set(nums1).intersection(nums2)
+        
+        
+6. def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums)-1
+        while l < r:
+            m = l + (r-l) // 2
+            # if mid is greater than r then right part is rotated so search for
+            # min in right part
+            if nums[m] > nums[r]:l = m +1
+            # mid is small than rightmost ele so min should be in left part
+            #search in left part for min element 
+            else: r = m 
+        #return leftmost min number 
+        return nums[l]    
+        
+        
+        
+ 7.  def searchRange(self, nums: List[int], target: int) -> List[int]:
+        
+        def search(x):
+            lo, hi = 0, len(nums)           
+            while lo < hi:
+                mid = (lo + hi) // 2
+                if nums[mid] < x:
+                    lo = mid+1
+                else:
+                    hi = mid                    
+            return lo
+        
+        lo = search(target)
+        hi = search(target+1)-1
+        
+        if lo <= hi:
+            return [lo, hi]
+                
+        return [-1, -1]
+        
+        
+        
+        
+ 8. def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # Sort both the arrays first...
+        sortedArr1 = sorted(nums1)
+        sortedArr2 = sorted(nums2)
+        # Use two pointers i and j for the two arrays and initialize both with zero.
+        i = 0
+        j = 0
+        # Create a output list to store the output...
+        output = []
+        while i < len(sortedArr1) and j < len(sortedArr2):
+            # If sortedArr1[i] is less than sortedArr2[j]...
+            # Leave the smaller element and go to next(greater) element in nums1...
+            if sortedArr1[i] < sortedArr2[j]:
+                i += 1
+            # If sortedArr1[i] is greater than sortedArr2[j]...
+            # Go to next(greater) element in nums2 array...
+            elif sortedArr2[j] < sortedArr1[i]:
+                j += 1
+            # If both the elements intersected...
+            # Add this element to output & increment both i and j.
+            else:
+                output.append(sortedArr1[i])
+                i += 1
+                j += 1
+        return output     
