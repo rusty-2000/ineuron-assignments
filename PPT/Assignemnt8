@@ -1,0 +1,177 @@
+1.  def minimumDeleteSum(self, s1: str, s2: str) -> int:
+        m = len(s1)
+        n = len(s2)
+        
+        dp = [[0 for i in range(len(s1) + 1)] for j in range(len(s2) + 1)]
+
+        for i in range(len(s2) + 1):
+            for j in range(len(s1) + 1):
+                if i == 0 and j == 0: 
+                    continue
+                elif i == 0:
+                    dp[i][j] += dp[i][j-1] + ord(s1[j-1])
+                elif j  == 0:
+                    dp[i][j] += dp[i-1][j] + ord(s2[i-1])
+                elif s1[j-1] == s2[i-1]:
+                    dp[i][j] = dp[i-1][j-1]
+                else:
+                    dp[i][j] = min(ord(s1[j-1]) + dp[i][j-1], ord(s2[i-1]) + dp[i-1][j])
+        
+        return dp[n][m]
+
+2.min,max=0,0 # to store the minimum and maximum possible number of open braces after processing each character
+        for c in s:
+            if c=='(': #If current is open, we increase both min and max
+                min+=1
+                max+=1
+            elif c=='*': # If current is *, we decrease min (the case where * being a closed brace ) and increase the max (the case where * being a open brace)
+                min-=1
+                max+=1
+            elif c==')': # If current is closed, we decrease both min and max
+                min-=1
+                max-=1
+            if min<0: # When the * is considered to be closed brace
+                min=0
+            if max<0: # When the number of open braces are more than closed braces 
+                return False
+        if min==0: #If there are no open braces in the mimimum case, the string is valid
+            return True
+        else:
+            return False
+            
+            
+3.  def minDistance(self, word1: str, word2: str) -> int:
+        dp=[[0] * (len(word2)+1) for j in range(len(word1)+1)]
+        for r in range(1,len(word1)+1):
+            for c in range(1,len(word2)+1):
+                if word1[r-1]==word2[c-1]:
+                    dp[r][c]=1+dp[r-1][c-1]
+                else:
+                    dp[r][c]=max(dp[r][c-1],dp[r-1][c])
+        return len(word1)+len(word2)-2*dp[-1][-1]
+        
+        
+ 4.   def preorderTraversal(root: Optional[TreeNode]):
+            if root == None:
+                return None
+            les.append("(")
+            les.append(str(root.val))
+            preorderTraversal(root.left)
+            if(root.left == None and root.right != None):
+                les.append("()")
+            preorderTraversal(root.right)
+            les.append(")")
+        preorderTraversal(root)
+        return "".join(les)[1:-1]
+        
+        
+ 5.def compress(self, chars: List[str]) -> int:
+        s = ""
+        point1 = 0
+        point2 = 1
+        # chars = ["a","b","b"]
+
+        if len(chars)==1:
+            return len(chars)
+        for i in range(1,len(chars)):
+
+            # print(chars[i])
+            if chars[point1] == chars[i]:
+                # print(chars[i])
+                # print(i,chars[i])
+                point2 += 1
+                # print(point2)
+                if(i==len(chars)-1):
+                    s+=chars[len(chars)-1]+str(point2)
+                    
+            elif chars[point1]!= chars[i]:
+                if(point2!=1):
+                    s += chars[point1] + str(point2)
+                else:
+                    s+=chars[point1]
+                
+                point1 = i
+                point2 = 1
+                
+                if(i==len(chars)-1):
+                    if(point2!=1):
+                        s+=chars[len(chars)-1]+str(point2)
+                    else:
+                        s+=chars[len(chars)-1]
+                        
+                    
+        for i in range(len(s)):
+            chars[i]=s[i]
+        return len(s)
+        # print(s)
+        
+        
+        
+ 6. def findAnagrams(self, s: str, p: str) -> List[int]:
+        # base case
+        if len(p) > len(s): return []
+        # create two dict to store char of string s and p 
+        sCount, pCount = {}, {}
+        # iterate over the range of len(p) and add char of both p and s to resp hashmaps
+        for i in range(len(p)):
+            pCount[p[i]] = 1 + pCount.get(p[i], 0)
+            sCount[s[i]] = 1 + sCount.get(s[i], 0)
+        # initialize res array to return later
+        # firstly if both dict are equal here then append 0 to res as we have found first
+        # anagram here only. 
+        res = [0] if sCount == pCount else []
+        # initialize left pointer of sliding window
+        l = 0
+        # iterate using right pointer from len(p) as we have added first char before
+        # iterate till len(s) 
+        for r in range(len(p), len(s)):
+            # add s[r] to hashmap
+            sCount[s[r]] = 1 + sCount.get(s[r], 0)
+            # dec val of s[l]
+            sCount[s[l]] -= 1
+            # if val for s[l] is zero then remove from hashmap
+            if sCount[s[l]] == 0: sCount.pop(s[l])
+            # increment l 
+            l += 1
+            #lastly if both hashmaps are equal then res.append(l)
+            if sCount == pCount: res.append(l)
+        #return res 
+        return res
+        
+        
+        
+  7.  stack = []
+        for i in range(len(s)):
+            if s[i]!="]":
+                stack.append(s[i])
+            else:
+                substr = ""
+                while stack[-1]!="[":
+                    c = stack.pop()
+                    substr = c + substr
+                stack.pop()
+                n = ""
+                while stack and stack[-1].isdigit():
+                    nums = stack.pop()
+                    n = nums + n
+                stack.append(int(n)*substr)
+        return "".join(stack)
+        
+        
+        
+ 8.def buddyStrings(self, A: str, B: str) -> bool:                
+        if len(A) != len(B):
+            return False
+        
+        if A == B and len(A) != len(set(A)):
+            return True
+        
+        diffs = []
+        for i in range(len(A)):
+            if A[i] != B[i]:
+                diffs.append(i)
+                if len(diffs) > 2:
+                    return False
+                
+        return len(diffs) == 2 and A[diffs[0]] == B[diffs[1]] and A[diffs[1]] == B[diffs[0]]
+ 
