@@ -1,0 +1,155 @@
+1. def isPowerOfThree(self, n: int) -> bool:
+        if n <= 0:
+            return False
+        log = math.log10(n) / math.log10(3)
+        return int(log) == log
+        
+        
+  2. def lastRemaining(self, n: int) -> int:
+        if n == 1:
+            return 1
+        c = floor(log2(n))
+        m = 0  # 2^i * k + m remains
+        p = 1
+        for i in range(1, c):
+            p <<= 1
+            if i % 2 == 0:
+                first = m if m > 0 else p
+                if first % (2 * p) == m:
+                    m += p
+            else:
+                last = ((n - m) // p) * p + m
+                if last % (2 * p) == m:
+                    m += p
+        return m if m > 0 else 2 * p
+        
+        
+        
+ 3.  def powerSet(str1, index, curr):
+    n = len(str1)
+ 
+    # base case
+    if (index == n):
+        return
+ 
+    # First print current subset
+    print(curr)
+ 
+    # Try appending remaining characters
+    # to current subset
+    for i in range(index + 1, n):
+        curr += str1[i]
+        powerSet(str1, i, curr)
+ 
+        # Once all subsets beginning with
+        # initial "curr" are printed, remove
+        # last character to consider a different
+        # prefix of subsets.
+        curr = curr.replace(curr[len(curr) - 1], "")
+ 
+    return
+ 
+ 
+# Driver code
+if __name__ == '__main__':
+    str = "abc"
+    powerSet(str, -1, "")
+
+4.   def string_length(str) :
+     
+    # if we reach at the
+    # end of the string
+    if str == '':
+        return 0
+    else :
+        return 1 + string_length(str[1:])
+     
+# Driver Code
+print (string_length(str))
+
+
+
+5. MAX_CHAR = 26; # assuming lower case only
+ 
+def countSubstringWithEqualEnds(s):
+    result = 0;
+    n = len(s);
+ 
+    # Calculating frequency of each character
+    # in the string.
+    count = [0]*MAX_CHAR;
+    for i in range(n):
+        count[ord(s[i])-ord('a')]+=1;
+ 
+    # Computing result using counts
+    for i in range(MAX_CHAR):
+        result += (count[i]*(count[i]+1)/2);
+ 
+    return result;
+ 
+# Driver code
+s = "abcab";
+print(countSubstringWithEqualEnds(s));
+ 
+ 
+ 6. def tower_of_hanoi(disks, source, auxiliary, target):  
+    if(disks == 1):  
+        print('Move disk 1 from rod {} to rod {}.'.format(source, target))  
+        return  
+    # function call itself  
+    tower_of_hanoi(disks - 1, source, target, auxiliary)  
+    print('Move disk {} from rod {} to rod {}.'.format(disks, source, target))  
+    tower_of_hanoi(disks - 1, auxiliary, source, target)  
+  
+  
+disks = int(input('Enter the number of disks: '))  
+# We are referring source as A, auxiliary as B, and target as C  
+tower_of_hanoi(disks, 'A', 'B', 'C')  # Calling the function 
+
+
+
+7.   def permute(s, answer):
+    if (len(s) == 0):
+        print(answer, end="  ")
+        return
+ 
+    for i in range(len(s)):
+        ch = s[i]
+        left_substr = s[0:i]
+        right_substr = s[i + 1:]
+        rest = left_substr + right_substr
+        permute(rest, answer + ch)
+ 
+ 
+# Driver Code
+answer = ""
+ 
+s = "ABC"
+ 
+print("All possible strings are : ")
+permute(s, answer)
+
+
+
+8.  def isConsonant(ch):
+      
+    # To handle lower case
+    ch = ch.upper()
+  
+    return not (ch == 'A' or ch == 'E' or 
+                ch == 'I' or ch == 'O' or 
+                ch == 'U') and ord(ch) >= 65 and ord(ch) <= 90
+  
+# To count total number of  
+# consonants from 0 to n-1
+def totalConsonants(string, n):
+      
+    if n == 1:
+        return isConsonant(string[0])
+  
+    return totalConsonants(string, n - 1) + isConsonant(string[n-1])
+  
+  
+# Driver code
+string = "abc de"
+print(totalConsonants(string, len(string)))
