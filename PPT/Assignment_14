@@ -1,0 +1,395 @@
+1.  
+
+# Node class
+class Node:
+
+	# Constructor to initialize the node object
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+class LinkedList:
+
+	# Function to initialize head
+	def __init__(self):
+		self.head = None
+
+	def detectAndRemoveLoop(self):
+		slow_p = fast_p = self.head
+		
+		while(slow_p and fast_p and fast_p.next):
+			slow_p = slow_p.next
+			fast_p = fast_p.next.next
+
+			# If slow_p and fast_p meet at some point then
+			# there is a loop
+			if slow_p == fast_p:
+				self.removeLoop(slow_p)
+		
+				# Return 1 to indicate that loop is found
+				return 1
+		
+		# Return 0 to indicate that there is no loop
+		return 0
+
+	# Function to remove loop
+	# loop_node --> pointer to one of the loop nodes
+	# head --> Pointer to the start node of the linked list
+	def removeLoop(self, loop_node):
+		ptr1 = loop_node
+		ptr2 = loop_node
+		
+		# Count the number of nodes in loop
+		k = 1
+		while(ptr1.next != ptr2):
+			ptr1 = ptr1.next
+			k += 1
+
+		# Fix one pointer to head
+		ptr1 = self.head
+		
+		# And the other pointer to k nodes after head
+		ptr2 = self.head
+		for i in range(k):
+			ptr2 = ptr2.next
+
+		# Move both pointers at the same place
+		# they will meet at loop starting node
+		while(ptr2 != ptr1):
+			ptr1 = ptr1.next
+			ptr2 = ptr2.next
+
+		# Get pointer to the last node
+		while(ptr2.next != ptr1):
+			ptr2 = ptr2.next
+
+		# Set the next node of the loop ending node
+		# to fix the loop
+		ptr2.next = None
+
+	# Function to insert a new node at the beginning
+	def push(self, new_data):
+		new_node = Node(new_data)
+		new_node.next = self.head
+		self.head = new_node
+
+	# Utility function to print the LinkedList
+	def printList(self):
+		temp = self.head
+		while(temp):
+			print(temp.data, end = ' ')
+			temp = temp.next
+
+
+# Driver program
+llist = LinkedList()
+llist.push(10)
+llist.push(4)
+llist.push(15)
+llist.push(20)
+llist.push(50)
+
+# Create a loop for testing
+llist.head.next.next.next.next.next = llist.head.next.next
+
+llist.detectAndRemoveLoop()
+
+print("Linked List after removing loop")
+llist.printList()
+
+
+2.  
+import sys
+import math
+
+# Linked list node
+
+
+class Node:
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+# Function to create a new node with given data */
+
+
+def newNode(data):
+	return Node(data)
+
+# Function to reverse the linked list */
+
+
+def reverseList(head):
+	if not head:
+		return
+	curNode = head
+	prevNode = head
+	nextNode = head.next
+	curNode.next = None
+
+	while(nextNode):
+		curNode = nextNode
+		nextNode = nextNode.next
+		curNode.next = prevNode
+		prevNode = curNode
+
+	return curNode
+
+# Adds one to a linked lists and return the head
+# node of resultant list
+
+
+def addOne(head):
+
+	# Reverse linked list and add one to head
+	head = reverseList(head)
+	k = head
+	carry = 0
+	prev = None
+	head.data += 1
+
+	# update carry for next calculation
+	while(head != None) and (head.data > 9 or carry > 0):
+		prev = head
+		head.data += carry
+		carry = head.data // 10
+		head.data = head.data % 10
+		head = head.next
+
+	if carry > 0:
+		prev.next = Node(carry)
+	# Reverse the modified list
+	return reverseList(k)
+
+# A utility function to print a linked list
+
+
+def printList(head):
+	if not head:
+		return
+	while(head):
+		print("{}".format(head.data), end="")
+		head = head.next
+
+
+# Driver code
+if __name__ == '__main__':
+	head = newNode(1)
+	head.next = newNode(9)
+	head.next.next = newNode(9)
+	head.next.next.next = newNode(9)
+
+	print("List is: ", end="")
+	printList(head)
+
+	head = addOne(head)
+
+	print("\nResultant list is: ", end="")
+	printList(head)
+
+
+3. from heapq import heappush, heappop
+class Node:
+	def __init__(self, d):
+		self.data = d
+		self.right = self.down = None
+
+
+class LinkedList():
+	def __init__(self):
+
+		# head of list
+		self.head = None
+
+	# Utility function to insert a node at beginning of the
+	# linked list
+	def push(self, head_ref, data):
+
+		# 1 & 2: Allocate the Node &
+		# Put in the data
+		new_node = Node(data)
+
+		# Make next of new Node as head
+		new_node.down = head_ref
+
+		# 4. Move the head to point to new Node
+		head_ref = new_node
+
+		# 5. return to link it back
+		return head_ref
+
+	def printList(self):
+
+		temp = self.head
+		while(temp != None):
+			print(temp.data, end=" ")
+			temp = temp.down
+
+		print()
+
+
+# class to compare two node objects
+class Cmp:
+	def __init__(self, node):
+		self.node = node
+
+	def __lt__(self, other):
+		return self.node.data < other.node.data
+
+
+def flatten(root):
+	pq = []
+	# push main linked list nodes to priority queue
+	while root:
+		heappush(pq, Cmp(root))
+		root = root.right
+	dummy = Node(0)
+	temp = dummy
+	
+	# keep popping out the min node until there are no nodes left in priority queue
+	while pq:
+		node = heappop(pq).node
+		temp.down = node
+		temp = node
+		# if bottom child exist add it to priority queue
+		if node.down:
+			heappush(pq, Cmp(node.down))
+
+	return dummy.down
+
+
+if __name__ == '__main__':
+	L = LinkedList()
+
+	'''
+	Let us create the following linked list
+			5 -> 10 -> 19 -> 28
+			| |	 |	 |
+			V V	 V	 V
+			7 20 22 35
+			|		 |	 |
+			V		 V	 V
+			8		 50 40
+			|			 |
+			V			 V
+			30			 45
+	'''
+	L.head = L.push(L.head, 30)
+	L.head = L.push(L.head, 8)
+	L.head = L.push(L.head, 7)
+	L.head = L.push(L.head, 5)
+
+	L.head.right = L.push(L.head.right, 20)
+	L.head.right = L.push(L.head.right, 10)
+
+	L.head.right.right = L.push(L.head.right.right, 50)
+	L.head.right.right = L.push(L.head.right.right, 22)
+	L.head.right.right = L.push(L.head.right.right, 19)
+
+	L.head.right.right.right = L.push(L.head.right.right.right, 45)
+	L.head.right.right.right = L.push(L.head.right.right.right, 40)
+	L.head.right.right.right = L.push(L.head.right.right.right, 35)
+	L.head.right.right.right = L.push(L.head.right.right.right, 20)
+
+flatten(L.head)
+L.printList()
+
+
+
+4. def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        oldtonew={None:None}
+        cur=head
+        while cur:
+            old=Node(cur.val)
+            oldtonew[cur]=old
+            cur=cur.next
+        cur=head
+        while cur:
+            copy=oldtonew[cur]
+            copy.next=oldtonew[cur.next]
+            copy.random=oldtonew[cur.random]
+            cur=cur.next
+        return oldtonew[head]
+
+
+5. def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head == None or head.next == None or head.next.next == None:
+            return head
+        
+        odd,even = head, head.next
+        pointer1,pointer2 = odd,even
+        prev = None
+        while(pointer1 != None and pointer2 != None):
+            pointer1.next = pointer2.next
+            prev = pointer1
+            pointer1 = pointer1.next
+            if pointer1 == None:
+                pointer2.next = None
+            else:
+                pointer2.next = pointer1.next
+            pointer2 = pointer2.next
+        if pointer1 == None:
+            prev.next = even
+        else:
+            pointer1.next = even
+        return odd
+
+
+6. def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        if not head:
+            return 
+        length=1
+        tail=head
+        while tail.next:
+            tail=tail.next
+            length+=1
+        k=k%length
+        if k==0:
+            return head
+        else:
+            cur=head
+            for i in range(length-k-1):
+                cur=cur.next
+            newhead=cur.next
+            cur.next=None
+            tail.next=head
+            return newhead
+
+
+7.  def nextLargerNodes(self, n: Optional[ListNode]) -> List[int]:
+        head = []
+        while(n):
+            head.append(n.val)
+            n = n.next
+        res = [0] * len(head)   
+        stack  =[]
+        for i in range(len(head)):
+            while stack and head[stack[-1]] < head[i]:
+                res[stack.pop()] = head[i]
+            stack.append(i)
+        return res
+
+
+8.  fake = ListNode(0, head)
+        
+        seen = {0: fake}        
+        prev = 0
+        
+        while head:
+            prev += head.val            
+            seen[prev] = head
+            
+            head = head.next
+            
+        head = fake
+        prev = 0
+        
+        while head:
+            prev += head.val
+            head.next = seen[prev].next
+            
+            head = head.next
+            
+        return fake.next
+
+
