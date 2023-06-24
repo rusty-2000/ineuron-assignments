@@ -1,0 +1,128 @@
+1.  def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort(key=lambda i:i[0])
+        output=[intervals[0]]
+        prevstart=intervals[0][0]
+        prevend=intervals[0][1]
+        for start,end in intervals[1:]:
+            if output[-1][1]>=start:
+                output[-1][1]=max(output[-1][1],end)
+            else:
+                output.append([start,end])
+        return output
+
+
+
+2. def sortColors(self, nums: List[int]) -> None:
+       
+        # To store index of 0,1,2
+        index=[-1]*3
+        n=len(nums)
+        #first element index is 0
+        index[nums[0]]=0
+        ind=1
+        while(ind<n):
+            #if present and previous elements are similar continue with next index
+            if nums[ind]==nums[ind-1]:
+                index[nums[ind]]+=1
+                ind+=1
+            else:
+                # current element is already present
+                if index[nums[ind]]!=-1:
+                    #if present element is current element, continue with next index
+                    if index[nums[ind]]==ind:
+                        ind+=1
+                    else:
+                        #swap current element with its previous that elements index 
+                        ele=nums[ind]
+                        nums[index[nums[ind]]+1],nums[ind]=nums[ind],nums[index[nums[ind]]+1]
+                        #increse the element size
+                        index[ele]+=1
+                else:
+                    # element is 0
+                    # as 0 will as ways at 0th index swap current with 0 index
+                    if nums[ind]==0:
+                        nums[0],nums[ind]=nums[ind],nums[0]
+                        index[0]=0
+                    elif nums[ind]==1:
+                        # as 1 will present after 0 elements ,swap current with 0's index+1
+                        nums[index[0]+1],nums[ind]=nums[ind],nums[index[0]+1]
+                        index[1]=index[0]+1
+                    else:
+                        # element is 2 just continue with next index
+                        index[2]=ind
+                        ind+=1
+
+
+3. class Solution:
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        left,right = 0,n
+        while left < right:
+            mid = (left + right) // 2
+            if isBadVersion(mid):
+                right = mid
+            else:
+                left = mid + 1
+        return left
+
+
+4.  def maximumGap(self, nums: List[int]) -> int:
+        nums.sort()
+        n=len(nums)
+        m=0
+        for i in range(n-1):
+            m=max(m,abs(nums[i]-nums[i+1]))
+        return m
+
+
+5.  hashset={}
+        for i in nums:
+            if i in hashset:
+                return True
+            
+            hashset[i]=1
+        return False
+
+
+6.  def findMinArrowShots(self, points: List[List[int]]) -> int:
+        # sort by end point   
+        points.sort(key = lambda x: x[1])
+        end = points[0][1]
+        count = 1
+        # iterate and count arrows
+        for s,e in points[1:]:
+            if s > end:
+                count += 1
+                end = e
+        
+        return count
+
+
+
+7. def lengthOfLIS(self, nums: list[int]) -> int:
+
+        arr = [nums.pop(0)]                  # <-- 1) initial step
+ 
+        for n in nums:                       # <-- 2) iterate through nums
+            
+            if n > arr[-1]:                  # <--    2a)
+                arr.append(n)
+
+            else:                            # <--    2b)
+                arr[bisect_left(arr, n)] = n 
+
+        return len(arr)          
+
+8.   def find132pattern(self, nums: List[int]) -> bool:
+        stack = []
+        num = float('-inf')
+        for n in nums[::-1]:
+            if n < num:
+                return True
+            while stack and stack[-1] < n:
+                num = stack.pop()
+            stack.append(n)
+        return False
