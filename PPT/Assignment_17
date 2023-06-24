@@ -1,0 +1,145 @@
+1. def firstUniqChar(self, s: str) -> int:
+        c = Counter(s)
+        print(c)
+        
+        for i in range(len(s)):
+            if c[s[i]] == 1:
+                return i
+        return -1
+
+2.   def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        arr = nums
+        def kadanes_algo():
+            maxi1 = arr[0]
+            maxi2 = -arr[0]
+            cont_sum = 0
+            sum1 = 0
+            sum2 = 0
+            for i in arr:
+                cont_sum += i
+                sum1 += i
+                sum2 += (-i)
+                maxi1 = max(maxi1, sum1)
+                maxi2 = max(maxi2, sum2)
+                if sum1 < 0:
+                    sum1 = 0
+                if sum2 < 0:
+                    sum2 = 0
+            return maxi1,maxi2, cont_sum
+        maxi1, maxi2, cont_sum = kadanes_algo()
+        print(maxi1, maxi2, cont_sum)
+        maxi2 *= -1
+        return(maxi1 if maxi1 < 0 else max(maxi1, cont_sum - maxi2) )
+
+
+3.  def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        for i in sandwiches:
+            if i in students:
+                students.remove(i)
+            else:
+                break
+        return len(students)
+
+
+4.  def __init__(self):
+        self.queue = deque()
+
+    def ping(self, t: int) -> int:
+        self.queue.append(t)
+        while t - 3000 > self.queue[0]:
+            self.queue.popleft()
+        return len(self.queue)
+
+
+5.  def findTheWinner(self, n: int, k: int) -> int:
+        return self.helper(n,k)+1
+
+    def helper(self, n:int, k:int)-> int:
+        if(n==1):
+            return 0
+        prevWinner = self.helper(n-1, k)
+        return (prevWinner + k) % n
+
+
+6.  def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+        def reveal(n):
+            lst = list(range(n))
+            ans = []
+            i = 0
+            while lst:
+                if not i&1: ans.append(lst.pop(0))
+                else: lst.append(lst.pop(0))
+                i += 1
+            return ans
+        ans = reveal(len(deck))
+        ans = sorted([v, i] for i, v in enumerate(ans))
+        deck.sort()
+        return (deck[j] for i,j in ans)
+
+
+7.  def __init__(self):
+        self.arr = []
+
+    def pushFront(self, val: int) -> None:
+        if len(self.arr) == 0 : 
+            self.arr = [val]
+        else : 
+            self.arr = [val] + self.arr
+
+    def pushMiddle(self, val: int) -> None:
+        if len(self.arr) == 0 :
+            self.arr = [val]
+        else : 
+            index = len(self.arr)//2
+            self.arr = self.arr[:index] + [val] + self.arr[index:]
+        
+
+    def pushBack(self, val: int) -> None:
+        self.arr.append(val)
+
+    def popFront(self) -> int:
+        if len(self.arr) == 0 : 
+            return -1 
+        else : 
+            toReturn = self.arr[0]
+            self.arr = self.arr[1:]
+            return toReturn
+
+    def popMiddle(self) -> int:
+        if len(self.arr) == 0 : 
+            return -1 
+        elif len(self.arr)%2 != 0 :
+            index = len(self.arr)//2 
+        else : 
+            index = len(self.arr)//2 - 1
+        toReturn = self.arr[index]
+        self.arr = self.arr[:index] + self.arr[index+1:]
+        return toReturn
+
+    def popBack(self) -> int:
+        if len(self.arr) == 0 : 
+            return -1 
+        else : 
+            toReturn = self.arr[-1]
+            self.arr = self.arr[:-1]
+            return toReturn
+
+
+
+8. def __init__(self, value: int, k: int):
+        self.key_ = value
+        self.target_counter_ = k
+        self.counter_ = 0
+        
+
+    def consec(self, num: int) -> bool:
+        if num == self.key_:
+            self.counter_ += 1
+            if self.counter_ == self.target_counter_:
+                self.counter_ -= 1
+                return True
+        else:
+            self.counter_ = 0
+            return False
+
+
