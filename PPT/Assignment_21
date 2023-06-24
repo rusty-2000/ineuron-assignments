@@ -1,0 +1,336 @@
+1. # Program to convert binary tree to BST
+
+# A binary tree node
+class Node:
+	
+	# Constructor to create a new node
+	def __init__(self, data):
+		self.data = data
+		self.left = None
+		self.right = None
+
+# Helper function to store the inorder traversal of a tree
+def storeInorder(root, inorder):
+	
+	# Base Case
+	if root is None:
+		return
+	
+	# First store the left subtree
+	storeInorder(root.left, inorder)
+	
+	# Copy the root's data
+	inorder.append(root.data)
+
+	# Finally store the right subtree
+	storeInorder(root.right, inorder)
+
+# A helper function to count nodes in a binary tree
+def countNodes(root):
+	if root is None:
+		return 0
+
+	return countNodes(root.left) + countNodes(root.right) + 1
+
+# Helper function that copies contents of sorted array
+# to Binary tree
+def arrayToBST(arr, root):
+
+	# Base Case
+	if root is None:
+		return
+	
+	# First update the left subtree
+	arrayToBST(arr, root.left)
+
+	# now update root's data delete the value from array
+	root.data = arr[0]
+	arr.pop(0)
+
+	# Finally update the right subtree
+	arrayToBST(arr, root.right)
+
+# This function converts a given binary tree to BST
+def binaryTreeToBST(root):
+	
+	# Base Case: Tree is empty
+	if root is None:
+		return
+	
+	# Count the number of nodes in Binary Tree so that
+	# we know the size of temporary array to be created
+	n = countNodes(root)
+
+	# Create the temp array and store the inorder traversal
+	# of tree
+	arr = []
+	storeInorder(root, arr)
+	
+	# Sort the array
+	arr.sort()
+
+	# copy array elements back to binary tree
+	arrayToBST(arr, root)
+
+# Print the inorder traversal of the tree
+def printInorder(root):
+	if root is None:
+		return
+	printInorder(root.left)
+	print (root.data,end=" ")
+	printInorder(root.right)
+
+# Driver program to test above function
+root = Node(10)
+root.left = Node(30)
+root.right = Node(15)
+root.left.left = Node(20)
+root.right.right = Node(5)
+
+# Convert binary tree to BST
+binaryTreeToBST(root)
+
+print ("Following is the inorder traversal of the converted BST")
+printInorder(root)
+
+
+2. # Python Program to find distance between
+# n1 and n2 using one traversal
+
+class Node:
+	def __init__(self, data):
+		self.data = data
+		self.right = None
+		self.left = None
+
+def pathToNode(root, path, k):
+
+	# base case handling
+	if root is None:
+		return False
+
+	# append the node value in path
+	path.append(root.data)
+
+	# See if the k is same as root's data
+	if root.data == k :
+		return True
+
+	# Check if k is found in left or right
+	# sub-tree
+	if ((root.left != None and pathToNode(root.left, path, k)) or
+			(root.right!= None and pathToNode(root.right, path, k))):
+		return True
+
+	# If not present in subtree rooted with root,
+	# remove root from path and return False
+	path.pop()
+	return False
+
+def distance(root, data1, data2):
+	if root:
+		# store path corresponding to node: data1
+		path1 = []
+		pathToNode(root, path1, data1)
+
+		# store path corresponding to node: data2
+		path2 = []
+		pathToNode(root, path2, data2)
+
+		# iterate through the paths to find the
+		# common path length
+		i=0
+		while i<len(path1) and i<len(path2):
+			# get out as soon as the path differs
+			# or any path's length get exhausted
+			if path1[i] != path2[i]:
+				break
+			i = i+1
+
+		# get the path length by deducting the
+		# intersecting path length (or till LCA)
+		return (len(path1)+len(path2)-2*i)
+	else:
+		return 0
+
+# Driver Code to test above functions
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.right.right= Node(7)
+root.right.left = Node(6)
+root.left.right = Node(5)
+root.right.left.right = Node(8)
+
+dist = distance(root, 4, 5)
+print ("Distance between node {} & {}: {}".format(4, 5, dist))
+
+dist = distance(root, 4, 6)
+print ("Distance between node {} & {}: {}".format(4, 6, dist))
+
+dist = distance(root, 3, 4)
+print ("Distance between node {} & {}: {}".format(3, 4, dist))
+
+dist = distance(root, 2, 4)
+print ("Distance between node {} & {}: {}".format(2, 4, dist))
+
+dist = distance(root, 8, 5)
+print ("Distance between node {} & {}: {}".format(8, 5, dist))
+
+
+3.  # Python program for conversion of
+# binary tree to doubly linked list.
+class Node:
+	def __init__(self, val):
+		self.right = None
+		self.data = val
+		self.left = None
+
+# Global variable used in convert
+prev = None
+
+def BinaryTree2DoubleLinkedList(root):
+	
+	# Base case
+	if root is None:
+		return root
+			
+	# Recursively convert left subtree
+	head = BinaryTree2DoubleLinkedList(root.left);
+	
+	# Since we are going to change prev,
+	# we need to use global keyword
+	global prev
+	
+	# If prev is empty, then this is the
+	# first node of DLL
+	if prev is None :
+		head = root
+		
+	else:
+		root.left = prev
+		prev.right = root
+	
+	# Update prev
+	prev = root;
+	
+	# Recursively convert right subtree
+	BinaryTree2DoubleLinkedList(root.right);
+	
+	return head
+
+def print_dll(head):
+	
+	# Function to print nodes in given
+	# doubly linked list
+	while head is not None:
+		print(head.data, end=" ")
+		head = head.right
+
+
+# Driver program to test above functions
+# Let us create the tree as
+# shown in above diagram
+if __name__ == '__main__':
+	root = Node(10)
+	root.left = Node(12)
+	root.right = Node(15)
+	root.left.left = Node(25)
+	root.left.right = Node(30)
+	root.right.left = Node(36)
+	
+	head = BinaryTree2DoubleLinkedList(root)
+	
+	# Print the converted list
+	print_dll(head)
+	
+
+4.  # Iterative program to connect all the adjacent nodes at the same level in a binary tree
+class newnode:
+	def __init__(self, data):
+		self.data = data
+		self.left = self.right = self.nextRight = None
+
+# setting right pointer to next right node
+
+#			 10 ----------> NULL
+#			 / \
+#		 8 --->2 --------> NULL
+#		 /
+#		 3 ----------------> NULL
+
+
+def connect(root):
+
+	# Base condition
+	if root is None:
+		return
+
+	# Create an empty queue like level order traversal
+	queue = []
+	queue.append(root)
+	while len(queue) != 0:
+
+		# size indicates no. of nodes at current level
+		size = len(queue)
+
+		# for keeping track of previous node
+		prev = newnode(None)
+		for i in range(size):
+			temp = queue.pop(0)
+			if temp.left:
+				queue.append(temp.left)
+			if temp.right:
+				queue.append(temp.right)
+			if prev != None:
+				prev.nextRight = temp
+				prev = temp
+		prev.nextRight = None
+
+
+# Driver Code
+if __name__ == '__main__':
+
+	# Constructed binary tree is
+	# 10
+	#	 / \
+	# 8	 2
+	# /
+	# 3
+	root = newnode(10)
+	root.left = newnode(8)
+	root.right = newnode(2)
+	root.left.left = newnode(3)
+
+	# Populates nextRight pointer in all nodes
+	connect(root)
+
+	# Let us check the values of nextRight pointers
+	print("Following are populated nextRight",
+		"pointers in the tree (-1 is printed",
+		"if there is no nextRight)")
+	print("nextRight of", root.data, "is ", end="")
+	if root.nextRight:
+		print(root.nextRight.data)
+	else:
+		print(-1)
+	print("nextRight of", root.left.data, "is ", end="")
+	if root.left.nextRight:
+		print(root.left.nextRight.data)
+	else:
+		print(-1)
+	print("nextRight of", root.right.data, "is ", end="")
+	if root.right.nextRight:
+		print(root.right.nextRight.data)
+	else:
+		print(-1)
+	print("nextRight of", root.left.left.data, "is ", end="")
+	if root.left.left.nextRight:
+		print(root.left.left.nextRight.data)
+	else:
+		print(-1)
+
+
+ 
+
