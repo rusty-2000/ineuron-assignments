@@ -1,0 +1,704 @@
+Reverse a string without using any built-in string reversal functions:
+python
+
+def reverse_string(string):
+    reversed_string = ''
+    for char in string:
+        reversed_string = char + reversed_string
+    return reversed_string
+
+# Example usage:
+string = 'Hello, World!'
+reversed_string = reverse_string(string)
+print(reversed_string)  # Output: '!dlroW ,olleH'
+Check if a given string is a palindrome:
+python
+
+def is_palindrome(string):
+    reversed_string = reverse_string(string)
+    return string == reversed_string
+
+# Example usage:
+string = 'radar'
+print(is_palindrome(string))  # Output: True
+
+string = 'hello'
+print(is_palindrome(string))  # Output: False
+Find the largest element in a given list:
+python
+  .
+def find_largest_element(lst):
+    if len(lst) == 0:
+        return None
+    largest = lst[0]
+    for num in lst:
+        if num > largest:
+            largest = num
+    return largest
+
+# Example usage:
+numbers = [10, 5, 20, 15]
+largest_number = find_largest_element(numbers)
+print(largest_number)  # Output: 20
+Count the occurrence of each element in a list:
+python
+  .
+def count_occurrences(lst):
+    occurrences = {}
+    for element in lst:
+        if element in occurrences:
+            occurrences[element] += 1
+        else:
+            occurrences[element] = 1
+    return occurrences
+
+# Example usage:
+numbers = [1, 2, 3, 2, 1, 3, 2, 4, 5, 4]
+occurrences = count_occurrences(numbers)
+print(occurrences)  # Output: {1: 2, 2: 3, 3: 2, 4: 2, 5: 1}
+Find the second largest number in a list:
+python
+  .
+def find_second_largest(lst):
+    if len(lst) < 2:
+        return None
+    largest = max(lst[0], lst[1])
+    second_largest = min(lst[0], lst[1])
+    for num in lst[2:]:
+        if num > largest:
+            second_largest = largest
+            largest = num
+        elif num > second_largest:
+            second_largest = num
+    return second_largest
+
+# Example usage:
+numbers = [10, 5, 20, 15]
+second_largest_number = find_second_largest(numbers)
+print(second_largest_number)  # Output: 15
+Remove duplicate elements from a list:
+python
+  .
+def remove_duplicates(lst):
+    unique_lst = []
+    for element in lst:
+        if element not in unique_lst:
+            unique_lst.append(element)
+    return unique_lst
+
+# Example usage:
+numbers = [1, 2, 3, 2, 1, 3, 2, 4, 5, 4]
+unique_numbers = remove_duplicates(numbers)
+print(unique_numbers)  # Output: [1, 2, 3, 4, 5]
+Calculate the factorial of a given number:
+python
+  .
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Example usage:
+number = 5
+factorial_result = factorial(number)
+print(factorial_result)  # Output: 120
+Check if a given number is prime:
+python
+  .
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Example usage:
+number = 13
+print(is_prime(number))  # Output: True
+
+number = 10
+print(is_prime(number))  # Output: False
+Sort a list of integers in ascending order:
+python
+  .
+def sort_list(lst):
+    return sorted(lst)
+
+# Example usage:
+numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]
+sorted_numbers = sort_list(numbers)
+print(sorted_numbers)  # Output: [1, 1, 2, 3, 3, 4, 5, 5, 6, 9]
+Find the sum of all numbers in a list:
+python
+  .
+def find_sum(lst):
+    return sum(lst)
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+sum_of_numbers = find_sum(numbers)
+print(sum_of_numbers)  # Output: 15
+I will continue with the remaining solutions in another response.
+
+
+
+
+
+
+Find the common elements between two lists:
+python
+  .
+def find_common_elements(list1, list2):
+    return list(set(list1) & set(list2))
+
+# Example usage:
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+common_elements = find_common_elements(list1, list2)
+print(common_elements)  # Output: [4, 5]
+Check if a given string is an anagram of another string:
+python
+  .
+def is_anagram(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+# Example usage:
+string1 = "listen"
+string2 = "silent"
+print(is_anagram(string1, string2))  # Output: True
+
+string1 = "hello"
+string2 = "world"
+print(is_anagram(string1, string2))  # Output: False
+Generate all permutations of a given string:
+python
+  .
+def permutations(string):
+    if len(string) == 1:
+        return [string]
+    perms = []
+    for i in range(len(string)):
+        char = string[i]
+        remaining = string[:i] + string[i+1:]
+        for perm in permutations(remaining):
+            perms.append(char + perm)
+    return perms
+
+# Example usage:
+string = "abc"
+string_permutations = permutations(string)
+print(string_permutations)  # Output: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+Calculate the Fibonacci sequence up to a given number of terms:
+python
+  .
+def fibonacci(n):
+    sequence = []
+    if n >= 1:
+        sequence.append(0)
+    if n >= 2:
+        sequence.append(1)
+    for i in range(2, n):
+        sequence.append(sequence[i-1] + sequence[i-2])
+    return sequence
+
+# Example usage:
+num_terms = 10
+fib_sequence = fibonacci(num_terms)
+print(fib_sequence)  # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+Find the median of a list of numbers:
+python
+  .
+def find_median(lst):
+    sorted_lst = sorted(lst)
+    n = len(sorted_lst)
+    if n % 2 == 0:
+        mid1 = sorted_lst[n//2 - 1]
+        mid2 = sorted_lst[n//2]
+        median = (mid1 + mid2) / 2
+    else:
+        median = sorted_lst[n//2]
+    return median
+
+# Example usage:
+numbers = [5, 1, 3, 2, 4]
+median = find_median(numbers)
+print(median)  # Output: 3
+Check if a given list is sorted in non-decreasing order:
+python
+  .
+def is_sorted(lst):
+    return all(lst[i] <= lst[i+1] for i in range(len(lst)-1))
+
+# Example usage:
+sorted_list = [1, 2, 3, 4, 5]
+print(is_sorted(sorted_list))  # Output: True
+
+unsorted_list = [5, 2, 4, 1, 3]
+print(is_sorted(unsorted_list))  # Output: False
+Find the intersection of two lists:
+python
+  .
+def find_intersection(list1, list2):
+    return list(set(list1) & set(list2))
+
+# Example usage:
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+intersection = find_intersection(list1, list2)
+print(intersection)  # Output: [4, 5]
+Find the maximum subarray sum in a given list:
+python
+  .
+def find_maximum_subarray_sum(lst):
+    current_sum = max_sum = lst[0]
+    for num in lst[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+    return max_sum
+
+# Example usage:
+numbers = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+maximum_subarray_sum = find_maximum_subarray_sum(numbers)
+print(maximum_subarray_sum)  # Output: 6
+Remove all vowels from a given string:
+python
+  .
+def remove_vowels(string):
+    vowels = 'aeiouAEIOU'
+    return ''.join(char for char in string if char not in vowels)
+
+# Example usage:
+string = "Hello, World!"
+string_without_vowels = remove_vowels(string)
+print(string_without_vowels)  # Output: "Hll, Wrld!"
+Reverse the order of words in a given sentence:
+python
+  .
+def reverse_words(sentence):
+    words = sentence.split()
+    reversed_sentence = ' '.join(words[::-1])
+    return reversed_sentence
+
+# Example usage:
+sentence = "Hello, World!"
+reversed_sentence = reverse_words(sentence)
+print(reversed_sentence)  # Output: "World! Hello,"
+I will provide the remaining solutions in the next response.
+
+
+
+
+
+
+Check if two strings are anagrams of each other:
+python
+  .
+def is_anagram(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+# Example usage:
+string1 = "listen"
+string2 = "silent"
+print(is_anagram(string1, string2))  # Output: True
+
+string1 = "hello"
+string2 = "world"
+print(is_anagram(string1, string2))  # Output: False
+Find the first non-repeating character in a string:
+python
+  .
+def find_first_non_repeating_char(string):
+    char_count = {}
+    for char in string:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    for char in string:
+        if char_count[char] == 1:
+            return char
+    return None
+
+# Example usage:
+string = "abracadabra"
+first_non_repeating_char = find_first_non_repeating_char(string)
+print(first_non_repeating_char)  # Output: "c"
+Find the prime factors of a given number:
+python
+  .
+def find_prime_factors(n):
+    factors = []
+    divisor = 2
+    while divisor <= n:
+        if n % divisor == 0:
+            factors.append(divisor)
+            n /= divisor
+        else:
+            divisor += 1
+    return factors
+
+# Example usage:
+number = 24
+prime_factors = find_prime_factors(number)
+print(prime_factors)  # Output: [2, 2, 2, 3]
+Check if a given number is a power of two:
+python
+  .
+def is_power_of_two(n):
+    if n <= 0:
+        return False
+    return (n & (n - 1)) == 0
+
+# Example usage:
+number = 16
+print(is_power_of_two(number))  # Output: True
+
+number = 15
+print(is_power_of_two(number))  # Output: False
+Merge two sorted lists into a single sorted list:
+python
+  .
+def merge_sorted_lists(list1, list2):
+    merged_list = []
+    i = j = 0
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:
+            merged_list.append(list1[i])
+            i += 1
+        else:
+            merged_list.append(list2[j])
+            j += 1
+    merged_list.extend(list1[i:])
+    merged_list.extend(list2[j:])
+    return merged_list
+
+# Example usage:
+list1 = [1, 3, 5, 7]
+list2 = [2, 4, 6, 8]
+merged_list = merge_sorted_lists(list1, list2)
+print(merged_list)  # Output: [1, 2, 3, 4, 5, 6, 7, 8]
+Find the mode of a list of numbers (the value(s) that appear most frequently):
+python
+  .
+from collections import Counter
+
+def find_mode(lst):
+    counter = Counter(lst)
+    max_count = max(counter.values())
+    mode = [num for num, count in counter.items() if count == max_count]
+    return mode
+
+# Example usage:
+numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+mode = find_mode(numbers)
+print(mode)  # Output: [4]
+Find the greatest common divisor (GCD) of two numbers:
+python
+  .
+def find_gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# Example usage:
+num1 = 36
+num2 = 48
+gcd = find_gcd(num1, num2)
+print(gcd)  # Output: 12
+Calculate the square root of a given number:
+python
+  .
+def square_root(n):
+    if n < 0:
+        raise ValueError("Square root is not defined for negative numbers.")
+    guess = n
+    while True:
+        new_guess = (guess + n / guess) / 2
+        if abs(guess - new_guess) < 1e-9:
+            return new_guess
+        guess = new_guess
+
+# Example usage:
+number = 16
+sqrt = square_root(number)
+print(sqrt)  # Output: 4.0
+Check if a given string is a valid palindrome, ignoring non-alphanumeric characters:
+python
+  .
+import re
+
+def is_valid_palindrome(string):
+    alphanumeric_string = re.sub(r'\W+', '', string.lower())
+    return alphanumeric_string == alphanumeric_string[::-1]
+
+# Example usage:
+string = "A man, a plan, a canal: Panama"
+print(is_valid_palindrome(string))  # Output: True
+
+string = "hello world"
+print(is_valid_palindrome(string))  # Output: False
+Find the minimum element in a rotated sorted list:
+python
+  .
+def find_minimum_rotated(lst):
+    left = 0
+    right = len(lst) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if lst[mid] > lst[right]:
+            left = mid + 1
+        else:
+            right = mid
+    return lst[left]
+
+# Example usage:
+numbers = [4, 5, 6, 7, 0, 1, 2]
+minimum = find_minimum_rotated(numbers)
+print(minimum)  # Output: 0
+I will continue with the remaining solutions in another response.
+
+
+
+
+
+
+Find the sum of all even numbers in a list:
+python
+  .
+def sum_even_numbers(lst):
+    return sum(num for num in lst if num % 2 == 0)
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sum_even = sum_even_numbers(numbers)
+print(sum_even)  # Output: 30
+Calculate the power of a number using recursion:
+python
+  .
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+    elif exponent > 0:
+        return base * power(base, exponent - 1)
+    else:
+        return 1 / power(base, -exponent)
+
+# Example usage:
+base = 2
+exponent = 3
+result = power(base, exponent)
+print(result)  # Output: 8
+Remove duplicates from a list while preserving the order:
+python
+  .
+def remove_duplicates(lst):
+    unique_lst = []
+    for element in lst:
+        if element not in unique_lst:
+            unique_lst.append(element)
+    return unique_lst
+
+# Example usage:
+numbers = [1, 2, 3, 2, 1, 3, 2, 4, 5, 4]
+unique_numbers = remove_duplicates(numbers)
+print(unique_numbers)  # Output: [1, 2, 3, 4, 5]
+Find the longest common prefix among a list of strings:
+python
+  .
+def find_longest_common_prefix(strings):
+    if not strings:
+        return ""
+    prefix = strings[0]
+    for string in strings[1:]:
+        while not string.startswith(prefix):
+            prefix = prefix[:-1]
+            if not prefix:
+                return ""
+    return prefix
+
+# Example usage:
+strings = ["flower", "flow", "flight"]
+common_prefix = find_longest_common_prefix(strings)
+print(common_prefix)  # Output: "fl"
+Check if a given number is a perfect square:
+python
+  .
+def is_perfect_square(n):
+    return n >= 0 and int(n ** 0.5) ** 2 == n
+
+# Example usage:
+number = 16
+print(is_perfect_square(number))  # Output: True
+
+number = 15
+print(is_perfect_square(number))  # Output: False
+Calculate the product of all elements in a list:
+python
+  .
+from functools import reduce
+import operator
+
+def calculate_product(lst):
+    return reduce(operator.mul, lst, 1)
+
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+product = calculate_product(numbers)
+print(product)  # Output: 120
+Reverse the order of words in a sentence while preserving the word order:
+python
+  .
+def reverse_words_in_sentence(sentence):
+    words = sentence.split()
+    reversed_words = words[::-1]
+    reversed_sentence = ' '.join(reversed_words)
+    return reversed_sentence
+
+# Example usage:
+sentence = "Hello, World!"
+reversed_sentence = reverse_words_in_sentence(sentence)
+print(reversed_sentence)  # Output: "World! Hello,"
+Find the missing number in a given list of consecutive numbers:
+python
+  .
+def find_missing_number(lst):
+    n = len(lst) + 1
+    expected_sum = (n * (n + 1)) // 2
+    actual_sum = sum(lst)
+    return expected_sum - actual_sum
+
+# Example usage:
+numbers = [1, 2, 3, 5]
+missing_number = find_missing_number(numbers)
+print(missing_number)  # Output: 4
+Find the sum of digits of a given number:
+python
+  .
+def sum_of_digits(number):
+    return sum(int(digit) for digit in str(number) if digit.isdigit())
+
+# Example usage:
+number = 12345
+digit_sum = sum_of_digits(number)
+print(digit_sum)  # Output: 15
+Check if a given string is a valid palindrome considering case sensitivity:
+python
+  .
+def is_valid_palindrome(string):
+    return string == string[::-1]
+
+# Example usage:
+string = "Madam"
+print(is_valid_palindrome(string))  # Output: False
+
+string = "level"
+print(is_valid_palindrome(string))  # Output: True
+I will continue with the remaining solutions in another response.
+
+
+
+
+
+
+Find the smallest missing positive integer in a list:
+python
+  .
+def find_smallest_missing_positive(lst):
+    n = len(lst)
+    for i in range(n):
+        while 1 <= lst[i] <= n and lst[i] != lst[lst[i] - 1]:
+            lst[lst[i] - 1], lst[i] = lst[i], lst[lst[i] - 1]
+    for i in range(n):
+        if lst[i] != i + 1:
+            return i + 1
+    return n + 1
+
+# Example usage:
+numbers = [3, 4, -1, 1]
+smallest_missing = find_smallest_missing_positive(numbers)
+print(smallest_missing)  # Output: 2
+Find the longest palindrome substring in a given string:
+python
+  .
+def longest_palindrome_substring(string):
+    n = len(string)
+    start = end = 0
+    for i in range(n):
+        len1 = expand_from_center(string, i, i)
+        len2 = expand_from_center(string, i, i + 1)
+        max_len = max(len1, len2)
+        if max_len > end - start:
+            start = i - (max_len - 1) // 2
+            end = i + max_len // 2
+    return string[start:end+1]
+
+def expand_from_center(string, left, right):
+    while left >= 0 and right < len(string) and string[left] == string[right]:
+        left -= 1
+        right += 1
+    return right - left - 1
+
+# Example usage:
+string = "babad"
+palindrome = longest_palindrome_substring(string)
+print(palindrome)  # Output: "bab"
+Find the number of occurrences of a given element in a list:
+python
+  .
+def count_occurrences(lst, element):
+    return lst.count(element)
+
+# Example usage:
+numbers = [1, 2, 3, 2, 1, 3, 2, 4, 5, 4]
+element = 2
+occurrences = count_occurrences(numbers, element)
+print(occurrences)  # Output: 3
+Check if a given number is a perfect number:
+python
+  .
+def is_perfect_number(n):
+    if n <= 0:
+        return False
+    divisors = []
+    for i in range(1, int(n ** 0.5) + 1):
+        if n % i == 0:
+            divisors.append(i)
+            if i != n // i:
+                divisors.append(n // i)
+    return sum(divisors) == 2 * n
+
+# Example usage:
+number = 28
+print(is_perfect_number(number))  # Output: True
+
+number = 12
+print(is_perfect_number(number))  # Output: False
+Remove all duplicates from a string:
+python
+  .
+def remove_duplicates(string):
+    return ''.join(dict.fromkeys(string))
+
+# Example usage:
+string = "Hello, World!"
+string_without_duplicates = remove_duplicates(string)
+print(string_without_duplicates)  # Output: "Helo, Wrd!"
+Find the first missing positive integer in a list:
+python
+  .
+def find_first_missing_positive(lst):
+    n = len(lst)
+    for i in range(n):
+        while 1 <= lst[i] <= n and lst[i] != lst[lst[i] - 1]:
+            lst[lst[i] - 1], lst[i] = lst[i], lst[lst[i] - 1]
+    for i in range(n):
+        if lst[i] != i + 1:
+            return i + 1
+    return n + 1
+
+# Example usage:
+numbers = [3, 4, -1, 1]
+first_missing = find_first_missing_positive(numbers)
+print(first_missing)  # Output: 2
