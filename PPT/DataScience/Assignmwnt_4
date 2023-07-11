@@ -1,0 +1,42 @@
+The purpose of the General Linear Model (GLM) is to model the relationship between a dependent variable and one or more independent variables.
+The key assumptions of the General Linear Model are:
+The dependent variable is normally distributed.
+The independent variables are not perfectly correlated.
+The errors are normally distributed with a mean of 0 and a variance of 1.
+The coefficients in a GLM can be interpreted as the average change in the dependent variable for a one-unit change in an independent variable.
+The difference between a univariate and multivariate GLM is that a univariate GLM only has one independent variable, while a multivariate GLM has multiple independent variables.
+Interaction effects in a GLM occur when the effect of one independent variable on the dependent variable depends on the value of another independent variable.
+Categorical predictors in a GLM can be handled by creating dummy variables. A dummy variable is a binary variable that indicates whether a particular category is present or not.
+The design matrix in a GLM is a matrix that contains the independent variables and the coefficients for those variables.
+The significance of predictors in a GLM can be tested using a t-test or an F-test.
+The difference between Type I, Type II, and Type III sums of squares in a GLM is the way that they account for the effects of the independent variables.
+The concept of deviance in a GLM is a measure of how well the model fits the data.
+
+Regression
+
+Regression analysis is a statistical technique that is used to model the relationship between a dependent variable and one or more independent variables.
+The difference between simple linear regression and multiple linear regression is that simple linear regression only has one independent variable, while multiple linear regression has multiple independent variables.
+The R-squared value in regression is a measure of how well the model fits the data. A higher R-squared value indicates that the model fits the data better.
+The difference between correlation and regression is that correlation measures the strength of the linear relationship between two variables, while regression models the relationship between two variables.
+The difference between the coefficients and the intercept in regression is that the coefficients are the slopes of the regression line, while the intercept is the point where the regression line crosses the y-axis.
+Outliers in regression analysis can be handled by removing them from the dataset, transforming the data, or using a robust regression model.
+The difference between ridge regression and ordinary least squares regression is that ridge regression adds a penalty to the coefficients in the model, which helps to prevent overfitting.
+Heteroscedasticity in regression is when the variance of the errors is not constant. This can cause problems with the standard errors of the coefficients.
+Multicollinearity in regression occurs when two or more independent variables are highly correlated. This can cause problems with the standard errors of the coefficients.
+Polynomial regression is a type of regression that uses polynomial terms to model the relationship between the dependent variable and the independent variables.
+Loss function
+
+A loss function is a function that measures the difference between the predicted values and the actual values.
+The difference between a convex and non-convex loss function is that a convex loss function has a single minimum, while a non-convex loss function can have multiple minima.
+Mean squared error (MSE) is a loss function that measures the average squared difference between the predicted values and the actual values.
+Mean absolute error (MAE) is a loss function that measures the average absolute difference between the predicted values and the actual values.
+Log loss (cross-entropy loss) is a loss function that is used for classification problems. It measures the difference between the predicted probabilities and the actual labels.
+The appropriate loss function for a given problem depends on the type of problem and the desired properties of the model.
+Regularization in the context of loss functions refers to the addition of a penalty term to the loss function. This helps to prevent overfitting.
+Huber loss is a loss function that is robust to outliers. It is a combination of MSE and MAE.
+Quantile loss is a loss function that measures the difference between the predicted quantiles and the actual quantiles.
+The difference between squared loss and absolute loss is that squared loss is more sensitive to outliers than absolute loss.
+Optimizer (GD)
+
+An optimizer is an algorithm that is used to find the minimum of a loss function.
+Gradient Descent (GD)
