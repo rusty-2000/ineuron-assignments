@@ -132,3 +132,92 @@ Purpose and functioning of autoencoder neural networks:
 Autoencoders are unsupervised learning models designed for feature extraction, data compression, and denoising.
 Functioning: An autoencoder consists of an encoder that compresses input data into a latent representation and a decoder that reconstructs the original input from the latent representation. The model is trained to minimize the reconstruction error, encouraging the autoencoder to learn meaningful and compact representations.
 
+Concept and applications of self-organizing maps (SOMs) in neural networks:
+
+SOMs are unsupervised learning models that use competitive learning to create a low-dimensional representation (typically a 2D grid) of the input space.
+Applications: SOMs are used for data visualization, clustering, dimensionality reduction, and exploratory data analysis. They can uncover underlying patterns, detect outliers, and provide insights into high-dimensional datasets.
+Use of neural networks for regression tasks:
+
+Neural networks can be used for regression by modifying the output layer to produce a continuous output value instead of a discrete class label.
+The loss function is typically chosen to measure the difference between predicted and target regression values, such as mean squared error (MSE) or mean absolute error (MAE).
+Challenges in training neural networks with large datasets:
+
+Memory requirements: Large datasets may not fit entirely into memory, requiring specialized techniques like data batching or streaming.
+Computational resources: Training large networks on large datasets may demand significant computational power or distributed training setups.
+Training time: Large datasets may prolong the training process, making it time-consuming to iterate and experiment with different network architectures or hyperparameters.
+Concept of transfer learning in neural networks and its benefits:
+
+Transfer learning involves leveraging knowledge gained from training one task or dataset and applying it to a different but related task or dataset.
+Benefits: Transfer learning can improve training efficiency, reduce the need for large labeled datasets, enable effective learning with limited data, and boost generalization performance by utilizing pre-trained models or pre-trained feature extractors.
+Use of neural networks for anomaly detection tasks:
+
+Neural networks can be utilized for anomaly detection by training them on normal or representative data and identifying deviations from the learned patterns.
+Autoencoders, in particular, are commonly used for anomaly detection, as they can learn a compressed representation of the normal data and identify anomalies through the reconstruction error.
+Concept of model interpretability in neural networks:
+
+Model interpretability refers to the understanding and explanation of how a neural network makes predictions or decisions.
+Techniques such as feature importance analysis, gradient-based methods, saliency maps, and attention mechanisms can provide insights into the neural network's decision-making process and help understand its behavior.
+Advantages and disadvantages of deep learning compared to traditional machine learning algorithms:
+
+Advantages: Deep learning excels in learning hierarchical representations from raw data, automatically extracting features, and handling complex tasks. It can achieve state-of-the-art performance in areas like computer vision, speech recognition, and natural language processing.
+Disadvantages: Deep learning typically requires large labeled datasets and considerable computational resources. It may be more challenging to interpret and explain compared to traditional machine learning algorithms, especially in complex architectures.
+Concept of ensemble learning in the context of neural networks:
+
+Ensemble learning combines multiple neural network models to make predictions or decisions.
+Benefits: Ensemble learning can improve prediction accuracy, reduce overfitting, increase model robustness, and provide better generalization by leveraging diverse models or model variations.
+Use of neural networks for natural language processing (NLP) tasks:
+
+Neural networks are widely used in NLP for tasks such as text classification, sentiment analysis, machine translation, named entity recognition, language generation, and question answering.
+Architectures like recurrent neural networks (RNNs), convolutional neural networks (CNNs), and transformers have been successful in NLP tasks.
+Concept and applications of self-supervised learning in neural networks:
+
+Self-supervised learning is a type of unsupervised learning where the model learns from the inherent structure or properties of the input data without explicit annotations.
+Applications: Self-supervised learning has shown promise in tasks such as representation learning, pretraining models, and generating useful embeddings or features for downstream tasks.
+Challenges in training neural networks with imbalanced datasets:
+
+Imbalanced datasets, where one class is significantly more prevalent than others, can lead to biased models and poor generalization.
+Challenges include the need for specialized sampling techniques (e.g., oversampling, undersampling), appropriate loss functions (e.g., weighted loss), and performance evaluation metrics that account for class imbalance (e.g., precision, recall, F1-score).
+Concept of adversarial attacks on neural networks and methods to mitigate them:
+
+Adversarial attacks involve manipulating input samples to mislead neural networks and cause misclassification or wrong predictions.
+Mitigation methods include adversarial training, defensive distillation, input perturbation techniques, and robust model architectures that can detect and withstand adversarial examples.
+Trade-off between model complexity and generalization performance in neural networks:
+
+Increasing model complexity, such as adding more layers or neurons, can increase the network's capacity to learn complex patterns from data.
+However, excessively complex models may overfit the training data and perform poorly on unseen data. The trade-off lies in finding the right level of complexity that balances model capacity and generalization performance.
+
+Techniques for handling missing data in neural networks:
+
+Missing data can be handled by methods such as:
+Imputation: Replacing missing values with estimated values based on available data.
+Masking: Training the network to handle missing values by explicitly masking them during training and inference.
+Variational Autoencoders (VAEs): Leveraging the generative capabilities of VAEs to model missing data and impute missing values.
+Concept and benefits of interpretability techniques like SHAP values and LIME in neural networks:
+
+Interpretability techniques like SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) aim to explain individual predictions made by complex models like neural networks.
+They provide insights into the contribution of different input features, helping understand the model's decision-making process, identify influential factors, and build trust in the model's predictions.
+Deployment of neural networks on edge devices for real-time inference:
+
+Edge deployment involves running neural networks on resource-constrained edge devices like smartphones, IoT devices, or embedded systems.
+Techniques include model compression, quantization, efficient network architectures, and hardware acceleration to enable real-time inference with minimal computational resources and power consumption.
+Considerations and challenges in scaling neural network training on distributed systems:
+
+Scaling neural network training on distributed systems involves distributing the computational load across multiple machines or GPUs.
+Challenges include efficient communication and synchronization among distributed nodes, load balancing, fault tolerance, and achieving optimal parallelization and scalability.
+Ethical implications of using neural networks in decision-making systems:
+
+Neural networks can introduce ethical concerns related to bias, fairness, transparency, accountability, and privacy.
+Biases present in training data can lead to biased decision-making. Transparency and interpretability of neural networks are crucial for ensuring accountability and fairness. Privacy concerns arise when dealing with sensitive data used for training or making decisions.
+Concept and applications of reinforcement learning in neural networks:
+
+Reinforcement learning involves training agents to make sequential decisions through trial and error interactions with an environment.
+Applications: Reinforcement learning has been successful in areas such as game playing, robotics, autonomous systems, recommendation systems, and optimizing complex processes.
+Impact of batch size in training neural networks:
+
+Batch size affects the efficiency and quality of neural network training.
+A larger batch size may speed up training but requires more memory and computational resources. Smaller batch sizes can provide more frequent weight updates and potentially better generalization.
+The choice of batch size depends on the specific dataset, network architecture, and available resources.
+Current limitations of neural networks and areas for future research:
+
+Despite their successes, neural networks still face challenges such as interpretability, robustness against adversarial attacks, handling limited labeled data, scalability to extremely large models, and reasoning beyond pattern recognition.
+Future research areas include exploring explainable AI, improving generalization on small datasets, designing more efficient architectures, developing more robust and secure models, and addressing ethical considerations in neural network applications.
